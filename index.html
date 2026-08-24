@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Yacht Brisa do Mar — Aluguel de Iates & Jetski em Luanda</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Alugue iates e jetskis de luxo em Luanda. Explore Mussulo, Baía e Ponto Final com a Brisa do Mar. Yacht, jetski e eventos." />
+	<meta name="keywords" content="iate luanda, yacht angola, jetski luanda, aluguel barco luanda, mussulo, brisa do mar" />
+	<meta name="author" content="Yacht Brisa do Mar" />
+
+	<!-- Facebook and Twitter integration -->
+	<meta property="og:title" content="Yacht Brisa do Mar — Explore com luxo nas ondas de Luanda"/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content="Yacht Brisa do Mar"/>
+	<meta property="og:description" content="Aluguel de iates e jetskis em Luanda, Angola. Yacht, jetski e eventos."/>
+	<meta name="twitter:title" content="Yacht Brisa do Mar" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="css/icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<!-- Superfish -->
+	<link rel="stylesheet" href="css/superfish.css">
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="css/magnific-popup.css">
+	<!-- Date Picker -->
+	<link rel="stylesheet" href="css/bootstrap-datepicker.min.css">
+	<!-- CS Select -->
+	<link rel="stylesheet" href="css/cs-select.css">
+	<link rel="stylesheet" href="css/cs-skin-border.css">
+	
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- Custom overrides for Brisa do Mar -->
+	<style>
+		:root {
+			--brisa-dark: #0a1628;
+			--brisa-blue: #0d3b66;
+			--brisa-teal: #1a8a9c;
+			--brisa-gold: #c9a227;
+		}
+		body {
+			font-family: 'Open Sans', sans-serif;
+		}
+		#fh5co-logo a {
+			font-weight: 700;
+			letter-spacing: 1px;
+		}
+		.fh5co-cover {
+			background-color: var(--brisa-dark) !important;
+		}
+		.btn-primary {
+			background: var(--brisa-teal) !important;
+			border-color: var(--brisa-teal) !important;
+		}
+		.btn-primary:hover,
+		.btn-primary:focus {
+			background: #147a8a !important;
+			border-color: #147a8a !important;
+		}
+		.btn-outline {
+			border: 2px solid #fff !important;
+			color: #fff !important;
+			background: transparent !important;
+		}
+		.btn-outline:hover {
+			background: #fff !important;
+			color: var(--brisa-dark) !important;
+		}
+		.whatsapp-float {
+			position: fixed;
+			bottom: 25px;
+			right: 25px;
+			z-index: 9999;
+			background: #25D366;
+			color: white;
+			width: 60px;
+			height: 60px;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 32px;
+			box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+			text-decoration: none;
+			transition: transform 0.2s;
+		}
+		.whatsapp-float:hover {
+			transform: scale(1.1);
+			color: white;
+			text-decoration: none;
+		}
+		.fleet-card {
+			background: #fff;
+			border-radius: 8px;
+			overflow: hidden;
+			box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+			margin-bottom: 30px;
+			transition: transform 0.3s;
+		}
+		.fleet-card:hover {
+			transform: translateY(-5px);
+		}
+		.fleet-card img {
+			width: 100%;
+			height: 220px;
+			object-fit: cover;
+		}
+		.fleet-card .desc {
+			padding: 20px;
+		}
+		.fleet-card h3 {
+			margin-top: 0;
+			color: var(--brisa-dark);
+		}
+		.capacity {
+			display: inline-block;
+			background: #e8f4f6;
+			color: var(--brisa-teal);
+			padding: 4px 12px;
+			border-radius: 20px;
+			font-size: 13px;
+			font-weight: 600;
+			margin-bottom: 10px;
+		}
+		.hero-tagline {
+			font-size: 18px;
+			letter-spacing: 2px;
+			text-transform: uppercase;
+			opacity: 0.9;
+			margin-bottom: 10px;
+		}
+		.section-title {
+			margin-bottom: 40px;
+		}
+		#fh5co-header-section {
+			background: rgba(10, 22, 40, 0.95);
+		}
+		.sf-menu a {
+			color: #fff !important;
+		}
+		.sf-menu > li > a:hover,
+		.sf-menu > li.active > a {
+			color: var(--brisa-teal) !important;
+		}
+		.placeholder-img {
+			background: linear-gradient(135deg, #0d3b66 0%, #1a8a9c 100%);
+			height: 220px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: white;
+			font-size: 18px;
+			font-weight: 600;
+		}
+		.experience-box {
+			text-align: center;
+			padding: 30px 20px;
+			background: #fff;
+			border-radius: 8px;
+			box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+			height: 100%;
+			margin-bottom: 20px;
+		}
+		.experience-box .icon {
+			font-size: 42px;
+			color: var(--brisa-teal);
+			margin-bottom: 15px;
+		}
+		.cta-section {
+			background: linear-gradient(135deg, #0a1628 0%, #0d3b66 100%);
+			color: white;
+			padding: 80px 0;
+			text-align: center;
+		}
+		.cta-section h2 {
+			color: white;
+			margin-bottom: 20px;
+		}
+		.cta-section p {
+			color: rgba(255,255,255,0.85);
+			font-size: 18px;
+			margin-bottom: 30px;
+		}
+	</style>
+
+	<!-- Modernizr JS -->
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+	</head>
+	<body>
+		<div id="fh5co-wrapper">
+		<div id="fh5co-page">
+
+		<header id="fh5co-header-section" class="sticky-banner">
+			<div class="container">
+				<div class="nav-header">
+					<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
+					<h1 id="fh5co-logo"><a href="index.html">Brisa do Mar</a></h1>
+					<!-- START #fh5co-menu-wrap -->
+					<nav id="fh5co-menu-wrap" role="navigation">
+						<ul class="sf-menu" id="fh5co-primary-menu">
+							<li class="active"><a href="index.html">Início</a></li>
+							<li><a href="#frota">Frota</a></li>
+							<li><a href="#experiencias">Experiências</a></li>
+							<li><a href="#contacto">Contacto</a></li>
+							<li><a href="https://wa.me/244947219310" target="_blank" style="color:#25D366 !important;">WhatsApp</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</header>
+
+		<!-- end:header-top -->
+	
+		<div class="fh5co-hero">
+			<div class="fh5co-overlay"></div>
+			<div class="fh5co-cover" data-stellar-background-ratio="0.5" style="background-image: url(images/cover_bg_1.jpg); background-color:#0a1628;">
+				<div class="desc">
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-12 col-md-10 col-md-offset-1 text-center">
+								<div class="desc2 animate-box" style="padding-top: 120px;">
+									<p class="hero-tagline">🌊 Explore com luxo nas ondas de Luanda</p>
+									<h2 style="font-size: 42px; margin-bottom: 15px;">Yacht Brisa do Mar</h2>
+									<p style="font-size: 18px; max-width: 600px; margin: 0 auto 30px;">Aluguel de iates e jetskis de luxo. Mussulo, Baía, Ponto Final e eventos exclusivos no Club Náutico, Luanda.</p>
+									<p>
+										<a class="btn btn-primary btn-lg" href="https://wa.me/244947219310?text=Olá! Gostaria de reservar um iate ou jetski." target="_blank" style="margin-right:10px;">
+											Reservar no WhatsApp
+										</a>
+										<a class="btn btn-outline btn-lg" href="#frota">Ver Frota</a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- FROTA -->
+		<div id="frota" class="fh5co-section-gray" style="padding: 80px 0;">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box section-title">
+						<h3>A Nossa Frota</h3>
+						<p>Escolha o barco ideal para o seu grupo. Capacidade clara e conforto garantido.</p>
+					</div>
+				</div>
+				<div class="row">
+					<!-- Santa Luzia -->
+					<div class="col-md-4 col-sm-6 animate-box">
+						<div class="fleet-card">
+							<div class="placeholder-img">Santa Luzia</div>
+							<div class="desc">
+								<span class="capacity">15 – 20 pessoas</span>
+								<h3>Santa Luzia</h3>
+								<p>Iate espaçoso e elegante, perfeito para grupos maiores e celebrações.</p>
+								<a class="btn btn-primary btn-block" href="https://wa.me/244947219310?text=Olá! Quero reservar o Santa Luzia." target="_blank">Reservar</a>
+							</div>
+						</div>
+					</div>
+					<!-- Catamarã -->
+					<div class="col-md-4 col-sm-6 animate-box">
+						<div class="fleet-card">
+							<div class="placeholder-img">Catamarã</div>
+							<div class="desc">
+								<span class="capacity">Até 30 pessoas</span>
+								<h3>Catamarã</h3>
+								<p>O maior da frota. Ideal para eventos, festas e grandes grupos.</p>
+								<a class="btn btn-primary btn-block" href="https://wa.me/244947219310?text=Olá! Quero reservar o Catamarã." target="_blank">Reservar</a>
+							</div>
+						</div>
+					</div>
+					<!-- Brisa do Mar -->
+					<div class="col-md-4 col-sm-6 animate-box">
+						<div class="fleet-card">
+							<div class="placeholder-img">Brisa do Mar</div>
+							<div class="desc">
+								<span class="capacity">Até 10 pessoas</span>
+								<h3>Brisa do Mar</h3>
+								<p>Iate ágil e confortável para momentos mais íntimos e escapadinhas.</p>
+								<a class="btn btn-primary btn-block" href="https://wa.me/244947219310?text=Olá! Quero reservar o Brisa do Mar." target="_blank">Reservar</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- EXPERIÊNCIAS -->
+		<div id="experiencias" style="padding: 80px 0; background: #f8f9fa;">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box section-title">
+						<h3>Experiências</h3>
+						<p>Mais do que um passeio — uma experiência completa nas águas de Luanda.</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4 col-sm-6 animate-box">
+						<div class="experience-box">
+							<div class="icon"><i class="icon-ship"></i></div>
+							<h3>Passeios de Iate</h3>
+							<p>Mussulo, Baía de Luanda, Ponto Final e mais. Explore com conforto e estilo.</p>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 animate-box">
+						<div class="experience-box">
+							<div class="icon"><i class="icon-speedometer"></i></div>
+							<h3>Jetski</h3>
+							<p>Adrenalina e liberdade nas ondas. Jetskis disponíveis para aluguel.</p>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 animate-box">
+						<div class="experience-box">
+							<div class="icon"><i class="icon-wine"></i></div>
+							<h3>Eventos & Festas</h3>
+							<p>Aniversários, corporate, despedidas e celebrações a bordo.</p>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 animate-box">
+						<div class="experience-box">
+							<div class="icon"><i class="icon-sun"></i></div>
+							<h3>Mussulo</h3>
+							<p>O destino clássico. Areia branca, águas calmas e ambiente paradisíaco.</p>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 animate-box">
+						<div class="experience-box">
+							<div class="icon"><i class="icon-camera"></i></div>
+							<h3>Fotografia & Conteúdo</h3>
+							<p>Cenários perfeitos para fotos, vídeos e momentos inesquecíveis.</p>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 animate-box">
+						<div class="experience-box">
+							<div class="icon"><i class="icon-users"></i></div>
+							<h3>Grupos & Famílias</h3>
+							<p>Opções para grupos pequenos e grandes. Capacidade até 30 pessoas.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- CTA -->
+		<div class="cta-section">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 animate-box">
+						<h2>Pronto para navegar?</h2>
+						<p>Fale connosco agora no WhatsApp e reserve o seu iate ou jetski.</p>
+						<a class="btn btn-primary btn-lg" href="https://wa.me/244947219310?text=Olá! Gostaria de saber disponibilidade e preços." target="_blank" style="background:#25D366 !important; border-color:#25D366 !important; font-size:18px; padding: 14px 36px;">
+							💬 Conversar no WhatsApp
+						</a>
+						<p style="margin-top: 25px; font-size: 15px;">
+							📍 Club Náutico, Luanda, Angola<br>
+							📱 +244 947 219 310
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- CONTACTO -->
+		<div id="contacto" class="fh5co-section-gray" style="padding: 70px 0;">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
+						<h3>Contacto</h3>
+						<p>Estamos prontos para ajudar com a sua reserva.</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4 col-sm-6 text-center animate-box" style="margin-bottom:30px;">
+						<span class="icon" style="font-size:36px; color:#1a8a9c;"><i class="icon-location"></i></span>
+						<h4>Localização</h4>
+						<p>Club Náutico<br>Luanda, Angola</p>
+					</div>
+					<div class="col-md-4 col-sm-6 text-center animate-box" style="margin-bottom:30px;">
+						<span class="icon" style="font-size:36px; color:#25D366;"><i class="icon-phone"></i></span>
+						<h4>WhatsApp</h4>
+						<p><a href="https://wa.me/244947219310" target="_blank">+244 947 219 310</a></p>
+					</div>
+					<div class="col-md-4 col-sm-6 text-center animate-box" style="margin-bottom:30px;">
+						<span class="icon" style="font-size:36px; color:#E1306C;"><i class="icon-instagram"></i></span>
+						<h4>Instagram</h4>
+						<p><a href="https://www.instagram.com/yachtbrisadomar/" target="_blank">@yachtbrisadomar</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<footer>
+			<div id="footer">
+				<div class="container">
+					<div class="row row-bottom-padded-md">
+						<div class="col-md-12 text-center">
+							<p class="fh5co-social-icons">
+								<a href="https://www.instagram.com/yachtbrisadomar/" target="_blank"><i class="icon-instagram"></i></a>
+								<a href="https://wa.me/244947219310" target="_blank"><i class="icon-phone"></i></a>
+							</p>
+							<p>
+								<strong>Yacht Brisa do Mar</strong><br>
+								Explore com luxo nas ondas de Luanda<br>
+								Club Náutico, Luanda, Angola
+							</p>
+							<p style="font-size:13px; opacity:0.7; margin-top:20px;">
+								© 2026 Yacht Brisa do Mar. Todos os direitos reservados.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		</div>
+		<!-- END fh5co-page -->
+
+		</div>
+		<!-- END fh5co-wrapper -->
+
+		<!-- Floating WhatsApp button -->
+		<a href="https://wa.me/244947219310?text=Olá! Gostaria de reservar um iate ou jetski." class="whatsapp-float" target="_blank" title="Falar no WhatsApp">
+			<span style="font-size:28px;">💬</span>
+		</a>
+
+		<!-- jQuery -->
+		<script src="js/jquery.min.js"></script>
+		<!-- jQuery Easing -->
+		<script src="js/jquery.easing.1.3.js"></script>
+		<!-- Bootstrap -->
+		<script src="js/bootstrap.min.js"></script>
+		<!-- Waypoints -->
+		<script src="js/jquery.waypoints.min.js"></script>
+		<script src="js/sticky.js"></script>
+
+		<!-- Stellar -->
+		<script src="js/jquery.stellar.min.js"></script>
+		<!-- Superfish -->
+		<script src="js/hoverIntent.js"></script>
+		<script src="js/superfish.js"></script>
+		<!-- Magnific Popup -->
+		<script src="js/jquery.magnific-popup.min.js"></script>
+		<script src="js/magnific-popup-options.js"></script>
+		<!-- Date Picker -->
+		<script src="js/bootstrap-datepicker.min.js"></script>
+		<!-- CS Select -->
+		<script src="js/classie.js"></script>
+		<script src="js/selectFx.js"></script>
+		
+		<!-- Main JS -->
+		<script src="js/main.js"></script>
+
+	</body>
+</html>
