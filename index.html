@@ -2,7 +2,7 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="pt"> <!--<![endif]-->
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -198,6 +198,51 @@
 		.rule-item strong { color: var(--brisa-dark); }
 		.about-text { font-size: 17px; line-height: 1.7; color: #444; max-width: 800px; margin: 0 auto; }
 
+		/* Language switcher */
+		.lang-switcher {
+			display: inline-flex;
+			align-items: center;
+			gap: 2px;
+			margin-left: 12px;
+			vertical-align: middle;
+		}
+		.lang-btn {
+			background: transparent;
+			border: 1px solid rgba(255,255,255,0.35);
+			color: rgba(255,255,255,0.75);
+			font-size: 12px;
+			font-weight: 700;
+			letter-spacing: 0.5px;
+			padding: 4px 10px;
+			cursor: pointer;
+			border-radius: 4px;
+			transition: all 0.2s;
+			line-height: 1.2;
+		}
+		.lang-btn:hover {
+			color: #fff;
+			border-color: rgba(255,255,255,0.7);
+		}
+		.lang-btn.active {
+			background: var(--brisa-teal);
+			border-color: var(--brisa-teal);
+			color: #fff;
+		}
+		.sf-menu > li.lang-li {
+			margin-left: 8px;
+		}
+		@media screen and (max-width: 768px) {
+			.lang-switcher {
+				margin: 12px 0 0;
+				display: flex;
+				justify-content: center;
+			}
+			.sf-menu > li.lang-li {
+				margin-left: 0;
+				text-align: center;
+			}
+		}
+
 		/* Fix: keep hero text visible on mobile */
 		@media screen and (max-width: 768px) {
 			.fh5co-cover .desc .desc2 {
@@ -239,13 +284,19 @@
 					<h1 id="fh5co-logo"><a href="index.html"><img src="logo.png" alt="Brisa do Mar"></a></h1>
 					<nav id="fh5co-menu-wrap" role="navigation">
 						<ul class="sf-menu" id="fh5co-primary-menu">
-							<li class="active"><a href="index.html">Início</a></li>
-							<li><a href="#frota">Frota</a></li>
-							<li><a href="#precos">Preços</a></li>
-							<li><a href="#bar">Bar</a></li>
-							<li><a href="#regras">Regras</a></li>
-							<li><a href="#contacto">Contacto</a></li>
-							<li><a href="https://wa.me/244947219310" target="_blank" style="color:#25D366 !important;">WhatsApp</a></li>
+							<li class="active"><a href="index.html" data-i18n="nav.home">Início</a></li>
+							<li><a href="#frota" data-i18n="nav.fleet">Frota</a></li>
+							<li><a href="#precos" data-i18n="nav.prices">Preços</a></li>
+							<li><a href="#bar" data-i18n="nav.bar">Bar</a></li>
+							<li><a href="#regras" data-i18n="nav.rules">Regras</a></li>
+							<li><a href="#contacto" data-i18n="nav.contact">Contacto</a></li>
+							<li><a href="https://wa.me/244947219310" target="_blank" style="color:#25D366 !important;" data-i18n="nav.whatsapp">WhatsApp</a></li>
+							<li class="lang-li">
+								<span class="lang-switcher" role="group" aria-label="Language">
+									<button type="button" class="lang-btn active" data-lang="pt" aria-pressed="true">PT</button>
+									<button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+								</span>
+							</li>
 						</ul>
 					</nav>
 				</div>
@@ -278,16 +329,16 @@
 						<div class="row">
 							<div class="col-sm-12 col-md-10 col-md-offset-1 text-center">
 								<div class="desc2 animate-box" style="padding-top: 120px;">
-									<p class="hero-tagline">🌊 Explore com luxo nas ondas de Luanda</p>
+									<p class="hero-tagline" data-i18n="hero.tagline">🌊 Explore com luxo nas ondas de Luanda</p>
 									<h2 style="font-size: 42px; margin-bottom: 15px;">Yacht Brisa do Mar</h2>
-									<p style="font-size: 18px; max-width: 620px; margin: 0 auto 30px;">
+									<p style="font-size: 18px; max-width: 620px; margin: 0 auto 30px;" data-i18n="hero.subtitle">
 										Embarque em uma experiência única de luxo e liberdade. Navegue pela Baía, Clube Náutico, Ilha de Luanda e Mussulo.
 									</p>
 									<p>
-										<a class="btn btn-primary btn-lg" href="https://wa.me/244947219310?text=Olá! Gostaria de reservar um iate ou jetski." target="_blank" style="margin-right:10px;">
+										<a id="hero-book" class="btn btn-primary btn-lg" href="https://wa.me/244947219310?text=Olá! Gostaria de reservar um iate ou jetski." target="_blank" style="margin-right:10px;" data-i18n="hero.book">
 											Reservar no WhatsApp
 										</a>
-										<a class="btn btn-outline btn-lg" href="#precos">Ver Preços</a>
+										<a class="btn btn-outline btn-lg" href="#precos" data-i18n="hero.prices">Ver Preços</a>
 									</p>
 								</div>
 							</div>
@@ -302,8 +353,8 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-10 col-md-offset-1 text-center animate-box">
-						<h3 style="margin-bottom: 25px;">A Experiência Brisa do Mar</h3>
-						<p class="about-text">
+						<h3 style="margin-bottom: 25px;" data-i18n="about.title">A Experiência Brisa do Mar</h3>
+						<p class="about-text" data-i18n="about.text">
 							Embarque em uma experiência única de luxo e liberdade com a nossa companhia de aluguel de yachts e jetski!
 							Navegue pelas águas cristalinas da Baía, explore o Clube Náutico, contemple a beleza da Ilha de Luanda e desfrute do Mussulo.
 							Oferecemos serviços exclusivos para até 10 pessoas, com um garçom a bordo pronto para atender e um bar.
@@ -320,8 +371,8 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
-						<h3>A Nossa Frota</h3>
-						<p>Escolha o barco ideal para o seu grupo.</p>
+						<h3 data-i18n="fleet.title">A Nossa Frota</h3>
+						<p data-i18n="fleet.subtitle">Escolha o barco ideal para o seu grupo.</p>
 					</div>
 				</div>
 				<div class="row">
@@ -329,14 +380,14 @@
 						<div class="fleet-card">
 							<img src="images/santaluzia.jpeg" alt="Santa Luzia — Yacht Brisa do Mar">
 							<div class="desc">
-								<span class="capacity">15 – 20 pessoas · 46 pés</span>
+								<span class="capacity" data-i18n="fleet.santaluzia.capacity">15 – 20 pessoas · 46 pés</span>
 								<h3>Santa Luzia</h3>
 								<ul style="padding-left:18px; font-size:14px; color:#555; margin-bottom:15px;">
-									<li>3 quartos</li>
-									<li>2 banheiros</li>
-									<li>1 sala</li>
+									<li data-i18n="fleet.santaluzia.r1">3 quartos</li>
+									<li data-i18n="fleet.santaluzia.r2">2 banheiros</li>
+									<li data-i18n="fleet.santaluzia.r3">1 sala</li>
 								</ul>
-								<a class="btn btn-primary btn-block" href="https://wa.me/244947219310?text=Olá! Quero reservar o Santa Luzia." target="_blank">Reservar</a>
+								<a id="fleet-santaluzia" class="btn btn-primary btn-block" href="https://wa.me/244947219310?text=Olá! Quero reservar o Santa Luzia." target="_blank" data-i18n="fleet.book">Reservar</a>
 							</div>
 						</div>
 					</div>
@@ -344,15 +395,15 @@
 						<div class="fleet-card">
 							<img src="images/catamara.jpeg" alt="Catamarã — Yacht Brisa do Mar">
 							<div class="desc">
-								<span class="capacity">Até 30 pessoas · 45 pés</span>
+								<span class="capacity" data-i18n="fleet.catamara.capacity">Até 30 pessoas · 45 pés</span>
 								<h3>Catamarã</h3>
 								<ul style="padding-left:18px; font-size:14px; color:#555; margin-bottom:15px;">
-									<li>3 camas de casal</li>
-									<li>2 camas de solteiro</li>
-									<li>4 WC náuticos</li>
-									<li>Mesas para 6 e 12 pessoas</li>
+									<li data-i18n="fleet.catamara.r1">3 camas de casal</li>
+									<li data-i18n="fleet.catamara.r2">2 camas de solteiro</li>
+									<li data-i18n="fleet.catamara.r3">4 WC náuticos</li>
+									<li data-i18n="fleet.catamara.r4">Mesas para 6 e 12 pessoas</li>
 								</ul>
-								<a class="btn btn-primary btn-block" href="https://wa.me/244947219310?text=Olá! Quero reservar o Catamarã." target="_blank">Reservar</a>
+								<a id="fleet-catamara" class="btn btn-primary btn-block" href="https://wa.me/244947219310?text=Olá! Quero reservar o Catamarã." target="_blank" data-i18n="fleet.book">Reservar</a>
 							</div>
 						</div>
 					</div>
@@ -360,14 +411,14 @@
 						<div class="fleet-card">
 							<img src="images/brisadomar.jpeg" alt="Brisa do Mar — Yacht Brisa do Mar">
 							<div class="desc">
-								<span class="capacity">Até 10 pessoas</span>
+								<span class="capacity" data-i18n="fleet.brisa.capacity">Até 10 pessoas</span>
 								<h3>Brisa do Mar</h3>
 								<ul style="padding-left:18px; font-size:14px; color:#555; margin-bottom:15px;">
-									<li>1 quarto com 2 camas</li>
-									<li>1 mesa</li>
-									<li>1 banheiro</li>
+									<li data-i18n="fleet.brisa.r1">1 quarto com 2 camas</li>
+									<li data-i18n="fleet.brisa.r2">1 mesa</li>
+									<li data-i18n="fleet.brisa.r3">1 banheiro</li>
 								</ul>
-								<a class="btn btn-primary btn-block" href="https://wa.me/244947219310?text=Olá! Quero reservar o Brisa do Mar." target="_blank">Reservar</a>
+								<a id="fleet-brisa" class="btn btn-primary btn-block" href="https://wa.me/244947219310?text=Olá! Quero reservar o Brisa do Mar." target="_blank" data-i18n="fleet.book">Reservar</a>
 							</div>
 						</div>
 					</div>
@@ -380,8 +431,8 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
-						<h3>Preços & Pacotes</h3>
-						<p>Valores em Kwanzas (KZS). Reserva com 2 dias de antecedência.</p>
+						<h3 data-i18n="prices.title">Preços & Pacotes</h3>
+						<p data-i18n="prices.subtitle">Valores em Kwanzas (KZS). Reserva com 2 dias de antecedência.</p>
 					</div>
 				</div>
 
@@ -390,8 +441,8 @@
 					<div class="col-md-6 animate-box">
 						<div class="price-table">
 							<div class="header">
-								<h4>Viagens Normais</h4>
-								<small>Mussulo · Clube Náutico · Baía · Embarcadouro · Ponto Final · Máx. 9 pessoas</small>
+								<h4 data-i18n="prices.normal.title">Viagens Normais</h4>
+								<small data-i18n="prices.normal.desc">Mussulo · Clube Náutico · Baía · Embarcadouro · Ponto Final · Máx. 9 pessoas</small>
 							</div>
 							<table>
 								<tr><td class="hours">2H</td><td class="price">120.000 KZS</td></tr>
@@ -409,8 +460,8 @@
 					<div class="col-md-6 animate-box">
 						<div class="price-table">
 							<div class="header">
-								<h4>Viagens Especiais</h4>
-								<small>Relaxar no barco alto mar com música</small>
+								<h4 data-i18n="prices.special.title">Viagens Especiais</h4>
+								<small data-i18n="prices.special.desc">Relaxar no barco alto mar com música</small>
 							</div>
 							<table>
 								<tr><td class="hours">2H</td><td class="price">110.000 KZS</td></tr>
@@ -430,8 +481,8 @@
 					<div class="col-md-6 animate-box">
 						<div class="price-table">
 							<div class="header">
-								<h4>Alto Mar com Música</h4>
-								<small>Relaxar no barco — pacote premium</small>
+								<h4 data-i18n="prices.offshore.title">Alto Mar com Música</h4>
+								<small data-i18n="prices.offshore.desc">Relaxar no barco — pacote premium</small>
 							</div>
 							<table>
 								<tr><td class="hours">2H</td><td class="price">170.000 KZS</td></tr>
@@ -449,8 +500,8 @@
 					<div class="col-md-6 animate-box">
 						<div class="price-table">
 							<div class="header">
-								<h4>Clube Náutico · Baía · Ponto Final</h4>
-								<small>Partida e destino à sua escolha · Máx. 9 pessoas</small>
+								<h4 data-i18n="prices.club.title">Clube Náutico · Baía · Ponto Final</h4>
+								<small data-i18n="prices.club.desc">Partida e destino à sua escolha · Máx. 9 pessoas</small>
 							</div>
 							<table>
 								<tr><td class="hours">2H</td><td class="price">200.000 KZS</td></tr>
@@ -468,11 +519,11 @@
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 text-center animate-box" style="margin-top: 20px;">
 						<div style="background:#fff; padding:20px; border-radius:10px; box-shadow:0 3px 15px rgba(0,0,0,0.06);">
-							<strong>Atravessar Embarcadouro ↔ Mussulo</strong><br>
-							9 pessoas · <span style="color:var(--brisa-teal); font-weight:700;">80.000 KZS</span>
+							<strong data-i18n="prices.crossing">Atravessar Embarcadouro ↔ Mussulo</strong><br>
+							<span data-i18n="prices.crossing.detail">9 pessoas · </span><span style="color:var(--brisa-teal); font-weight:700;">80.000 KZS</span>
 						</div>
 						<p style="margin-top: 25px;">
-							<a class="btn btn-primary btn-lg" href="https://wa.me/244947219310?text=Olá! Gostaria de saber disponibilidade e reservar." target="_blank">
+							<a id="prices-book" class="btn btn-primary btn-lg" href="https://wa.me/244947219310?text=Olá! Gostaria de saber disponibilidade e reservar." target="_blank" data-i18n="prices.book">
 								Reservar agora no WhatsApp
 							</a>
 						</p>
@@ -486,8 +537,8 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
-						<h3>Temos Bebidas a Bordo</h3>
-						<p>Escolha o pack ideal para a sua experiência. Snacks grátis inclusos.</p>
+						<h3 data-i18n="bar.title">Temos Bebidas a Bordo</h3>
+						<p data-i18n="bar.subtitle">Escolha o pack ideal para a sua experiência. Snacks grátis inclusos.</p>
 					</div>
 				</div>
 				<div class="row">
@@ -500,7 +551,7 @@
 								<li>5 Cuca</li>
 								<li>5 Coca-Cola</li>
 								<li>5 Sprite</li>
-								<li>10 Águas + Snacks grátis</li>
+								<li data-i18n="bar.bronze.r5">10 Águas + Snacks grátis</li>
 							</ul>
 						</div>
 					</div>
@@ -514,7 +565,7 @@
 								<li>Peroni</li>
 								<li>4 Sprite grandes</li>
 								<li>4 Cola grandes</li>
-								<li>15 Águas + Snacks grátis</li>
+								<li data-i18n="bar.party.r6">15 Águas + Snacks grátis</li>
 							</ul>
 						</div>
 					</div>
@@ -528,7 +579,7 @@
 								<li>Heineken</li>
 								<li>2 Sprite grandes</li>
 								<li>2 Coca-Cola grandes</li>
-								<li>10 Águas + Snacks grátis</li>
+								<li data-i18n="bar.gold.r6">10 Águas + Snacks grátis</li>
 							</ul>
 						</div>
 					</div>
@@ -542,7 +593,7 @@
 								<li>1 Mateus Rosé + 1 Chandon</li>
 								<li>5 Eka</li>
 								<li>2 Sprite + 2 Cola grandes</li>
-								<li>10 Águas + Snacks grátis</li>
+								<li data-i18n="bar.deluxe.r6">10 Águas + Snacks grátis</li>
 							</ul>
 						</div>
 					</div>
@@ -551,8 +602,8 @@
 							<h4>Mini Bar Extreme Pack</h4>
 							<div class="pack-price">129.199 KZS</div>
 							<ul>
-								<li>1× Moët & Chandon (à sua escolha)</li>
-								<li>+ Snacks grátis</li>
+								<li data-i18n="bar.moet">1× Moët & Chandon (à sua escolha)</li>
+								<li data-i18n="bar.extreme.r2">+ Snacks grátis</li>
 							</ul>
 						</div>
 					</div>
@@ -565,33 +616,33 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
-						<h3>Regras a Bordo</h3>
-						<p>Para a sua segurança e conforto de todos.</p>
+						<h3 data-i18n="rules.title">Regras a Bordo</h3>
+						<p data-i18n="rules.subtitle">Para a sua segurança e conforto de todos.</p>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2">
 						<div class="rule-item animate-box">
-							<strong>1. Proibido fumar no quarto do barco</strong><br>
-							É estritamente proibido fumar dentro da cabine devido ao material interior do barco.
+							<strong data-i18n="rules.1.title">1. Proibido fumar no quarto do barco</strong><br>
+							<span data-i18n="rules.1.text">É estritamente proibido fumar dentro da cabine devido ao material interior do barco.</span>
 						</div>
 						<div class="rule-item animate-box">
-							<strong>2. Atenção aos membros da equipe</strong><br>
-							Pedimos que ouça atentamente as instruções dos membros da nossa equipe, pois a sua orientação é fundamental para a sua segurança durante a viagem.
+							<strong data-i18n="rules.2.title">2. Atenção aos membros da equipe</strong><br>
+							<span data-i18n="rules.2.text">Pedimos que ouça atentamente as instruções dos membros da nossa equipe, pois a sua orientação é fundamental para a sua segurança durante a viagem.</span>
 						</div>
 						<div class="rule-item animate-box">
-							<strong>3. Permanecer sentado até a equipe permitir</strong><br>
-							Para garantir a segurança de todos, solicitamos que permaneça sentado até que os membros da equipe indiquem que é seguro se movimentar pelo barco.
+							<strong data-i18n="rules.3.title">3. Permanecer sentado até a equipe permitir</strong><br>
+							<span data-i18n="rules.3.text">Para garantir a segurança de todos, solicitamos que permaneça sentado até que os membros da equipe indiquem que é seguro se movimentar pelo barco.</span>
 						</div>
 						<div class="rule-item animate-box">
-							<strong>4. Reserva</strong><br>
-							A reserva deve ser feita com antecedência de dois dias para garantir disponibilidade. Após 24 horas da reserva, não será possível realizar alterações.
+							<strong data-i18n="rules.4.title">4. Reserva</strong><br>
+							<span data-i18n="rules.4.text">A reserva deve ser feita com antecedência de dois dias para garantir disponibilidade. Após 24 horas da reserva, não será possível realizar alterações.</span>
 						</div>
 						<div class="rule-item animate-box">
-							<strong>Nota importante</strong><br>
-							Danos ao yacht: <strong>50.000 KZS</strong>
+							<strong data-i18n="rules.note.title">Nota importante</strong><br>
+							<span data-i18n="rules.note.text">Danos ao yacht: </span><strong>50.000 KZS</strong>
 						</div>
-						<p class="text-center" style="margin-top: 25px; color: #666;">
+						<p class="text-center" style="margin-top: 25px; color: #666;" data-i18n="rules.thanks" data-i18n-html="true">
 							Agradecemos a sua atenção e cooperação para tornar a sua experiência a bordo do <strong>Grupo OK Yacht Brisa do Mar</strong> a mais agradável possível.
 						</p>
 					</div>
@@ -604,9 +655,9 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 animate-box">
-						<h2>Pronto para navegar?</h2>
-						<p>Fale connosco agora no WhatsApp e reserve o seu iate ou jetski.</p>
-						<a class="btn btn-primary btn-lg" href="https://wa.me/244947219310?text=Olá! Gostaria de saber disponibilidade e preços." target="_blank" style="background:#25D366 !important; border-color:#25D366 !important; font-size:18px; padding: 14px 36px;">
+						<h2 data-i18n="cta.title">Pronto para navegar?</h2>
+						<p data-i18n="cta.text">Fale connosco agora no WhatsApp e reserve o seu iate ou jetski.</p>
+						<a id="cta-book" class="btn btn-primary btn-lg" href="https://wa.me/244947219310?text=Olá! Gostaria de saber disponibilidade e preços." target="_blank" style="background:#25D366 !important; border-color:#25D366 !important; font-size:18px; padding: 14px 36px;" data-i18n="cta.button">
 							💬 Conversar no WhatsApp
 						</a>
 						<p style="margin-top: 25px; font-size: 15px;">
@@ -623,14 +674,14 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
-						<h3>Contacto</h3>
+						<h3 data-i18n="contact.title">Contacto</h3>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-4 col-sm-6 text-center animate-box" style="margin-bottom:30px;">
 						<span style="font-size:36px; color:#1a8a9c;"><i class="icon-location"></i></span>
-						<h4>Localização</h4>
-						<p>Club Náutico<br>Luanda, Angola</p>
+						<h4 data-i18n="contact.location">Localização</h4>
+						<p data-i18n="contact.location.text" data-i18n-html="true">Club Náutico<br>Luanda, Angola</p>
 					</div>
 					<div class="col-md-4 col-sm-6 text-center animate-box" style="margin-bottom:30px;">
 						<span style="font-size:36px; color:#25D366;"><i class="icon-phone"></i></span>
@@ -657,10 +708,10 @@
 							</p>
 							<p>
 								<strong>Grupo OK — Yacht Brisa do Mar</strong><br>
-								Explore com luxo nas ondas de Luanda<br>
+								<span data-i18n="footer.tagline">Explore com luxo nas ondas de Luanda</span><br>
 								Club Náutico, Luanda, Angola
 							</p>
-							<p style="font-size:13px; opacity:0.7; margin-top:20px;">
+							<p style="font-size:13px; opacity:0.7; margin-top:20px;" data-i18n="footer.rights">
 								© 2026 Yacht Brisa do Mar. Todos os direitos reservados.
 							</p>
 						</div>
@@ -672,7 +723,7 @@
 		</div>
 		</div>
 
-		<a href="https://wa.me/244947219310?text=Olá! Gostaria de reservar um iate ou jetski." class="whatsapp-float" target="_blank" title="Falar no WhatsApp">💬</a>
+		<a id="float-wa" href="https://wa.me/244947219310?text=Olá! Gostaria de reservar um iate ou jetski." class="whatsapp-float" target="_blank" title="Falar no WhatsApp" data-i18n-title="wa.float_title">💬</a>
 
 		<script src="js/jquery.min.js"></script>
 		<script src="js/jquery.easing.1.3.js"></script>
@@ -688,6 +739,7 @@
 		<script src="js/classie.js"></script>
 		<script src="js/selectFx.js"></script>
 		<script src="js/main.js"></script>
+		<script src="js/i18n.js"></script>
 		<script>
 		(function () {
 			var slides = document.querySelectorAll('.hero-slide');
