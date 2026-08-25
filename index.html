@@ -12,40 +12,23 @@
 	<meta name="keywords" content="iate luanda, yacht angola, jetski luanda, aluguel barco luanda, mussulo, brisa do mar" />
 	<meta name="author" content="Yacht Brisa do Mar" />
 
-	<!-- Facebook and Twitter integration -->
 	<meta property="og:title" content="Yacht Brisa do Mar — Explore com luxo nas ondas de Luanda"/>
-	<meta property="og:image" content=""/>
-	<meta property="og:url" content=""/>
 	<meta property="og:site_name" content="Yacht Brisa do Mar"/>
 	<meta property="og:description" content="Aluguel de iates e jetskis em Luanda, Angola. Yacht, jetski e eventos."/>
-	<meta name="twitter:title" content="Yacht Brisa do Mar" />
-	<meta name="twitter:image" content="" />
-	<meta name="twitter:url" content="" />
-	<meta name="twitter:card" content="" />
 
 	<link rel="shortcut icon" href="favicon.ico">
-
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
 	
-	<!-- Animate.css -->
 	<link rel="stylesheet" href="css/animate.css">
-	<!-- Icomoon Icon Fonts-->
 	<link rel="stylesheet" href="css/icomoon.css">
-	<!-- Bootstrap  -->
 	<link rel="stylesheet" href="css/bootstrap.css">
-	<!-- Superfish -->
 	<link rel="stylesheet" href="css/superfish.css">
-	<!-- Magnific Popup -->
 	<link rel="stylesheet" href="css/magnific-popup.css">
-	<!-- Date Picker -->
 	<link rel="stylesheet" href="css/bootstrap-datepicker.min.css">
-	<!-- CS Select -->
 	<link rel="stylesheet" href="css/cs-select.css">
 	<link rel="stylesheet" href="css/cs-skin-border.css">
-	
 	<link rel="stylesheet" href="css/style.css">
 
-	<!-- Custom overrides for Brisa do Mar -->
 	<style>
 		:root {
 			--brisa-dark: #0a1628;
@@ -53,158 +36,94 @@
 			--brisa-teal: #1a8a9c;
 			--brisa-gold: #c9a227;
 		}
-		body {
-			font-family: 'Open Sans', sans-serif;
-		}
-		#fh5co-logo a {
-			font-weight: 700;
-			letter-spacing: 1px;
-		}
-		.fh5co-cover {
-			background-color: var(--brisa-dark) !important;
-		}
-		.btn-primary {
-			background: var(--brisa-teal) !important;
-			border-color: var(--brisa-teal) !important;
-		}
-		.btn-primary:hover,
-		.btn-primary:focus {
-			background: #147a8a !important;
-			border-color: #147a8a !important;
-		}
-		.btn-outline {
-			border: 2px solid #fff !important;
-			color: #fff !important;
-			background: transparent !important;
-		}
-		.btn-outline:hover {
-			background: #fff !important;
-			color: var(--brisa-dark) !important;
-		}
+		body { font-family: 'Open Sans', sans-serif; }
+		#fh5co-logo a { font-weight: 700; letter-spacing: 1px; }
+		.fh5co-cover { background-color: var(--brisa-dark) !important; }
+		.btn-primary { background: var(--brisa-teal) !important; border-color: var(--brisa-teal) !important; }
+		.btn-primary:hover, .btn-primary:focus { background: #147a8a !important; border-color: #147a8a !important; }
+		.btn-outline { border: 2px solid #fff !important; color: #fff !important; background: transparent !important; }
+		.btn-outline:hover { background: #fff !important; color: var(--brisa-dark) !important; }
 		.whatsapp-float {
-			position: fixed;
-			bottom: 25px;
-			right: 25px;
-			z-index: 9999;
-			background: #25D366;
-			color: white;
-			width: 60px;
-			height: 60px;
-			border-radius: 50%;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			font-size: 32px;
-			box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-			text-decoration: none;
+			position: fixed; bottom: 25px; right: 25px; z-index: 9999;
+			background: #25D366; color: white; width: 60px; height: 60px;
+			border-radius: 50%; display: flex; align-items: center; justify-content: center;
+			font-size: 28px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); text-decoration: none;
 			transition: transform 0.2s;
 		}
-		.whatsapp-float:hover {
-			transform: scale(1.1);
-			color: white;
-			text-decoration: none;
-		}
+		.whatsapp-float:hover { transform: scale(1.1); color: white; text-decoration: none; }
 		.fleet-card {
-			background: #fff;
-			border-radius: 8px;
-			overflow: hidden;
-			box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-			margin-bottom: 30px;
-			transition: transform 0.3s;
+			background: #fff; border-radius: 8px; overflow: hidden;
+			box-shadow: 0 5px 20px rgba(0,0,0,0.08); margin-bottom: 30px; transition: transform 0.3s;
 		}
-		.fleet-card:hover {
-			transform: translateY(-5px);
-		}
-		.fleet-card img {
-			width: 100%;
-			height: 220px;
-			object-fit: cover;
-		}
-		.fleet-card .desc {
-			padding: 20px;
-		}
-		.fleet-card h3 {
-			margin-top: 0;
-			color: var(--brisa-dark);
-		}
+		.fleet-card:hover { transform: translateY(-5px); }
+		.fleet-card .desc { padding: 20px; }
+		.fleet-card h3 { margin-top: 0; color: var(--brisa-dark); }
 		.capacity {
-			display: inline-block;
-			background: #e8f4f6;
-			color: var(--brisa-teal);
-			padding: 4px 12px;
-			border-radius: 20px;
-			font-size: 13px;
-			font-weight: 600;
-			margin-bottom: 10px;
+			display: inline-block; background: #e8f4f6; color: var(--brisa-teal);
+			padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: 600; margin-bottom: 10px;
 		}
-		.hero-tagline {
-			font-size: 18px;
-			letter-spacing: 2px;
-			text-transform: uppercase;
-			opacity: 0.9;
-			margin-bottom: 10px;
-		}
-		.section-title {
-			margin-bottom: 40px;
-		}
-		#fh5co-header-section {
-			background: rgba(10, 22, 40, 0.95);
-		}
-		.sf-menu a {
-			color: #fff !important;
-		}
-		.sf-menu > li > a:hover,
-		.sf-menu > li.active > a {
-			color: var(--brisa-teal) !important;
-		}
+		.hero-tagline { font-size: 18px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.9; margin-bottom: 10px; }
+		#fh5co-header-section { background: rgba(10, 22, 40, 0.95); }
+		.sf-menu a { color: #fff !important; }
+		.sf-menu > li > a:hover, .sf-menu > li.active > a { color: var(--brisa-teal) !important; }
 		.placeholder-img {
 			background: linear-gradient(135deg, #0d3b66 0%, #1a8a9c 100%);
-			height: 220px;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			color: white;
-			font-size: 18px;
-			font-weight: 600;
+			height: 220px; display: flex; align-items: center; justify-content: center;
+			color: white; font-size: 18px; font-weight: 600;
 		}
 		.experience-box {
-			text-align: center;
-			padding: 30px 20px;
-			background: #fff;
-			border-radius: 8px;
-			box-shadow: 0 5px 15px rgba(0,0,0,0.06);
-			height: 100%;
-			margin-bottom: 20px;
+			text-align: center; padding: 30px 20px; background: #fff; border-radius: 8px;
+			box-shadow: 0 5px 15px rgba(0,0,0,0.06); height: 100%; margin-bottom: 20px;
 		}
-		.experience-box .icon {
-			font-size: 42px;
-			color: var(--brisa-teal);
-			margin-bottom: 15px;
-		}
+		.experience-box .icon { font-size: 42px; color: var(--brisa-teal); margin-bottom: 15px; }
 		.cta-section {
 			background: linear-gradient(135deg, #0a1628 0%, #0d3b66 100%);
-			color: white;
-			padding: 80px 0;
-			text-align: center;
+			color: white; padding: 80px 0; text-align: center;
 		}
-		.cta-section h2 {
-			color: white;
-			margin-bottom: 20px;
+		.cta-section h2 { color: white; margin-bottom: 20px; }
+		.cta-section p { color: rgba(255,255,255,0.85); font-size: 18px; margin-bottom: 30px; }
+
+		/* Pricing */
+		.price-table {
+			background: #fff; border-radius: 10px; overflow: hidden;
+			box-shadow: 0 5px 25px rgba(0,0,0,0.08); margin-bottom: 30px;
 		}
-		.cta-section p {
-			color: rgba(255,255,255,0.85);
-			font-size: 18px;
-			margin-bottom: 30px;
+		.price-table .header {
+			background: var(--brisa-dark); color: #fff; padding: 20px; text-align: center;
 		}
+		.price-table .header h4 { margin: 0 0 5px; color: #fff; font-size: 18px; }
+		.price-table .header small { color: var(--brisa-gold); font-size: 13px; }
+		.price-table table { width: 100%; margin: 0; }
+		.price-table td { padding: 12px 18px; border-bottom: 1px solid #eee; }
+		.price-table tr:last-child td { border-bottom: none; }
+		.price-table .hours { font-weight: 700; color: var(--brisa-gold); width: 30%; }
+		.price-table .price { text-align: right; font-weight: 600; color: var(--brisa-dark); }
+
+		/* Bar packs */
+		.bar-pack {
+			background: #fff; border-radius: 10px; padding: 25px;
+			box-shadow: 0 5px 20px rgba(0,0,0,0.07); margin-bottom: 25px; height: 100%;
+			border-top: 4px solid var(--brisa-teal);
+		}
+		.bar-pack h4 { margin-top: 0; color: var(--brisa-dark); }
+		.bar-pack .pack-price { font-size: 22px; font-weight: 700; color: var(--brisa-teal); margin: 10px 0 15px; }
+		.bar-pack ul { padding-left: 18px; margin-bottom: 0; font-size: 14px; color: #555; }
+		.bar-pack ul li { margin-bottom: 4px; }
+
+		/* Rules */
+		.rule-item {
+			background: #fff; padding: 18px 20px; border-radius: 8px;
+			margin-bottom: 12px; border-left: 4px solid var(--brisa-teal);
+			box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+		}
+		.rule-item strong { color: var(--brisa-dark); }
+		.about-text { font-size: 17px; line-height: 1.7; color: #444; max-width: 800px; margin: 0 auto; }
 	</style>
 
-	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
-	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
-
 	</head>
 	<body>
 		<div id="fh5co-wrapper">
@@ -215,12 +134,13 @@
 				<div class="nav-header">
 					<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
 					<h1 id="fh5co-logo"><a href="index.html">Brisa do Mar</a></h1>
-					<!-- START #fh5co-menu-wrap -->
 					<nav id="fh5co-menu-wrap" role="navigation">
 						<ul class="sf-menu" id="fh5co-primary-menu">
 							<li class="active"><a href="index.html">Início</a></li>
 							<li><a href="#frota">Frota</a></li>
-							<li><a href="#experiencias">Experiências</a></li>
+							<li><a href="#precos">Preços</a></li>
+							<li><a href="#bar">Bar</a></li>
+							<li><a href="#regras">Regras</a></li>
 							<li><a href="#contacto">Contacto</a></li>
 							<li><a href="https://wa.me/244947219310" target="_blank" style="color:#25D366 !important;">WhatsApp</a></li>
 						</ul>
@@ -229,8 +149,7 @@
 			</div>
 		</header>
 
-		<!-- end:header-top -->
-	
+		<!-- HERO -->
 		<div class="fh5co-hero">
 			<div class="fh5co-overlay"></div>
 			<div class="fh5co-cover" data-stellar-background-ratio="0.5" style="background-image: url(images/cover_bg_1.jpg); background-color:#0a1628;">
@@ -241,16 +160,36 @@
 								<div class="desc2 animate-box" style="padding-top: 120px;">
 									<p class="hero-tagline">🌊 Explore com luxo nas ondas de Luanda</p>
 									<h2 style="font-size: 42px; margin-bottom: 15px;">Yacht Brisa do Mar</h2>
-									<p style="font-size: 18px; max-width: 600px; margin: 0 auto 30px;">Aluguel de iates e jetskis de luxo. Mussulo, Baía, Ponto Final e eventos exclusivos no Club Náutico, Luanda.</p>
+									<p style="font-size: 18px; max-width: 620px; margin: 0 auto 30px;">
+										Embarque em uma experiência única de luxo e liberdade. Navegue pela Baía, Clube Náutico, Ilha de Luanda e Mussulo.
+									</p>
 									<p>
 										<a class="btn btn-primary btn-lg" href="https://wa.me/244947219310?text=Olá! Gostaria de reservar um iate ou jetski." target="_blank" style="margin-right:10px;">
 											Reservar no WhatsApp
 										</a>
-										<a class="btn btn-outline btn-lg" href="#frota">Ver Frota</a>
+										<a class="btn btn-outline btn-lg" href="#precos">Ver Preços</a>
 									</p>
 								</div>
 							</div>
 						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- ABOUT -->
+		<div style="padding: 70px 0; background: #fff;">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-10 col-md-offset-1 text-center animate-box">
+						<h3 style="margin-bottom: 25px;">A Experiência Brisa do Mar</h3>
+						<p class="about-text">
+							Embarque em uma experiência única de luxo e liberdade com a nossa companhia de aluguel de yachts e jetski!
+							Navegue pelas águas cristalinas da Baía, explore o Clube Náutico, contemple a beleza da Ilha de Luanda e desfrute do Mussulo.
+							Oferecemos serviços exclusivos para até 10 pessoas, com um garçom a bordo pronto para atender e um bar.
+							Mergulhe em alto mar, dance ao som da música e desfrute de um tempo flexível feito sob medida para você.
+							Venha viver a essência da elegância e do relaxamento conosco.
+						</p>
 					</div>
 				</div>
 			</div>
@@ -260,44 +199,54 @@
 		<div id="frota" class="fh5co-section-gray" style="padding: 80px 0;">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box section-title">
+					<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
 						<h3>A Nossa Frota</h3>
-						<p>Escolha o barco ideal para o seu grupo. Capacidade clara e conforto garantido.</p>
+						<p>Escolha o barco ideal para o seu grupo.</p>
 					</div>
 				</div>
 				<div class="row">
-					<!-- Santa Luzia -->
 					<div class="col-md-4 col-sm-6 animate-box">
 						<div class="fleet-card">
 							<div class="placeholder-img">Santa Luzia</div>
 							<div class="desc">
-								<span class="capacity">15 – 20 pessoas</span>
+								<span class="capacity">15 – 20 pessoas · 46 pés</span>
 								<h3>Santa Luzia</h3>
-								<p>Iate espaçoso e elegante, perfeito para grupos maiores e celebrações.</p>
+								<ul style="padding-left:18px; font-size:14px; color:#555; margin-bottom:15px;">
+									<li>3 quartos</li>
+									<li>2 banheiros</li>
+									<li>1 sala</li>
+								</ul>
 								<a class="btn btn-primary btn-block" href="https://wa.me/244947219310?text=Olá! Quero reservar o Santa Luzia." target="_blank">Reservar</a>
 							</div>
 						</div>
 					</div>
-					<!-- Catamarã -->
 					<div class="col-md-4 col-sm-6 animate-box">
 						<div class="fleet-card">
 							<div class="placeholder-img">Catamarã</div>
 							<div class="desc">
-								<span class="capacity">Até 30 pessoas</span>
+								<span class="capacity">Até 30 pessoas · 45 pés</span>
 								<h3>Catamarã</h3>
-								<p>O maior da frota. Ideal para eventos, festas e grandes grupos.</p>
+								<ul style="padding-left:18px; font-size:14px; color:#555; margin-bottom:15px;">
+									<li>3 camas de casal</li>
+									<li>2 camas de solteiro</li>
+									<li>4 WC náuticos</li>
+									<li>Mesas para 6 e 12 pessoas</li>
+								</ul>
 								<a class="btn btn-primary btn-block" href="https://wa.me/244947219310?text=Olá! Quero reservar o Catamarã." target="_blank">Reservar</a>
 							</div>
 						</div>
 					</div>
-					<!-- Brisa do Mar -->
 					<div class="col-md-4 col-sm-6 animate-box">
 						<div class="fleet-card">
 							<div class="placeholder-img">Brisa do Mar</div>
 							<div class="desc">
 								<span class="capacity">Até 10 pessoas</span>
 								<h3>Brisa do Mar</h3>
-								<p>Iate ágil e confortável para momentos mais íntimos e escapadinhas.</p>
+								<ul style="padding-left:18px; font-size:14px; color:#555; margin-bottom:15px;">
+									<li>1 quarto com 2 camas</li>
+									<li>1 mesa</li>
+									<li>1 banheiro</li>
+								</ul>
 								<a class="btn btn-primary btn-block" href="https://wa.me/244947219310?text=Olá! Quero reservar o Brisa do Mar." target="_blank">Reservar</a>
 							</div>
 						</div>
@@ -306,57 +255,225 @@
 			</div>
 		</div>
 
-		<!-- EXPERIÊNCIAS -->
-		<div id="experiencias" style="padding: 80px 0; background: #f8f9fa;">
+		<!-- PREÇOS -->
+		<div id="precos" style="padding: 80px 0; background: #f8f9fa;">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box section-title">
-						<h3>Experiências</h3>
-						<p>Mais do que um passeio — uma experiência completa nas águas de Luanda.</p>
+					<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
+						<h3>Preços & Pacotes</h3>
+						<p>Valores em Kwanzas (KZS). Reserva com 2 dias de antecedência.</p>
+					</div>
+				</div>
+
+				<div class="row">
+					<!-- Viagens Normais -->
+					<div class="col-md-6 animate-box">
+						<div class="price-table">
+							<div class="header">
+								<h4>Viagens Normais</h4>
+								<small>Mussulo · Clube Náutico · Baía · Embarcadouro · Ponto Final · Máx. 9 pessoas</small>
+							</div>
+							<table>
+								<tr><td class="hours">2H</td><td class="price">120.000 KZS</td></tr>
+								<tr><td class="hours">4H</td><td class="price">225.000 KZS</td></tr>
+								<tr><td class="hours">6H</td><td class="price">400.000 KZS</td></tr>
+								<tr><td class="hours">8H</td><td class="price">600.000 KZS</td></tr>
+								<tr><td class="hours">10H</td><td class="price">800.000 KZS</td></tr>
+								<tr><td class="hours">12H</td><td class="price">950.000 KZS</td></tr>
+								<tr><td class="hours">+12H</td><td class="price">1.000.000 KZS</td></tr>
+							</table>
+						</div>
+					</div>
+
+					<!-- Viagens Especiais -->
+					<div class="col-md-6 animate-box">
+						<div class="price-table">
+							<div class="header">
+								<h4>Viagens Especiais</h4>
+								<small>Relaxar no barco alto mar com música</small>
+							</div>
+							<table>
+								<tr><td class="hours">2H</td><td class="price">110.000 KZS</td></tr>
+								<tr><td class="hours">4H</td><td class="price">210.000 KZS</td></tr>
+								<tr><td class="hours">6H</td><td class="price">410.000 KZS</td></tr>
+								<tr><td class="hours">8H</td><td class="price">600.000 KZS</td></tr>
+								<tr><td class="hours">10H</td><td class="price">810.000 KZS</td></tr>
+								<tr><td class="hours">12H</td><td class="price">1.000.000 KZS</td></tr>
+								<tr><td class="hours">+12H</td><td class="price">1.200.000 KZS</td></tr>
+							</table>
+						</div>
+					</div>
+				</div>
+
+				<div class="row" style="margin-top: 10px;">
+					<!-- Alto Mar (outro pacote) -->
+					<div class="col-md-6 animate-box">
+						<div class="price-table">
+							<div class="header">
+								<h4>Alto Mar com Música</h4>
+								<small>Relaxar no barco — pacote premium</small>
+							</div>
+							<table>
+								<tr><td class="hours">2H</td><td class="price">170.000 KZS</td></tr>
+								<tr><td class="hours">4H</td><td class="price">340.000 KZS</td></tr>
+								<tr><td class="hours">6H</td><td class="price">510.000 KZS</td></tr>
+								<tr><td class="hours">8H</td><td class="price">680.000 KZS</td></tr>
+								<tr><td class="hours">10H</td><td class="price">850.000 KZS</td></tr>
+								<tr><td class="hours">12H</td><td class="price">1.200.000 KZS</td></tr>
+								<tr><td class="hours">24H</td><td class="price">1.650.000 KZS</td></tr>
+							</table>
+						</div>
+					</div>
+
+					<!-- Clube Náutico / Baía / Ponto Final -->
+					<div class="col-md-6 animate-box">
+						<div class="price-table">
+							<div class="header">
+								<h4>Clube Náutico · Baía · Ponto Final</h4>
+								<small>Partida e destino à sua escolha · Máx. 9 pessoas</small>
+							</div>
+							<table>
+								<tr><td class="hours">2H</td><td class="price">200.000 KZS</td></tr>
+								<tr><td class="hours">4H</td><td class="price">400.000 KZS</td></tr>
+								<tr><td class="hours">6H</td><td class="price">600.000 KZS</td></tr>
+								<tr><td class="hours">8H</td><td class="price">800.000 KZS</td></tr>
+								<tr><td class="hours">10H</td><td class="price">1.000.000 KZS</td></tr>
+								<tr><td class="hours">12H</td><td class="price">1.500.000 KZS</td></tr>
+								<tr><td class="hours">24H</td><td class="price">2.000.000 KZS</td></tr>
+							</table>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 text-center animate-box" style="margin-top: 20px;">
+						<div style="background:#fff; padding:20px; border-radius:10px; box-shadow:0 3px 15px rgba(0,0,0,0.06);">
+							<strong>Atravessar Embarcadouro ↔ Mussulo</strong><br>
+							9 pessoas · <span style="color:var(--brisa-teal); font-weight:700;">80.000 KZS</span>
+						</div>
+						<p style="margin-top: 25px;">
+							<a class="btn btn-primary btn-lg" href="https://wa.me/244947219310?text=Olá! Gostaria de saber disponibilidade e reservar." target="_blank">
+								Reservar agora no WhatsApp
+							</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- BAR PACKS -->
+		<div id="bar" style="padding: 80px 0; background: #fff;">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
+						<h3>Temos Bebidas a Bordo</h3>
+						<p>Escolha o pack ideal para a sua experiência. Snacks grátis inclusos.</p>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-4 col-sm-6 animate-box">
-						<div class="experience-box">
-							<div class="icon"><i class="icon-ship"></i></div>
-							<h3>Passeios de Iate</h3>
-							<p>Mussulo, Baía de Luanda, Ponto Final e mais. Explore com conforto e estilo.</p>
+						<div class="bar-pack">
+							<h4>Bar Bronze Pack</h4>
+							<div class="pack-price">26.599 KZS</div>
+							<ul>
+								<li>5 Smirnoff Preta / Vermelha</li>
+								<li>5 Cuca</li>
+								<li>5 Coca-Cola</li>
+								<li>5 Sprite</li>
+								<li>10 Águas + Snacks grátis</li>
+							</ul>
 						</div>
 					</div>
 					<div class="col-md-4 col-sm-6 animate-box">
-						<div class="experience-box">
-							<div class="icon"><i class="icon-speedometer"></i></div>
-							<h3>Jetski</h3>
-							<p>Adrenalina e liberdade nas ondas. Jetskis disponíveis para aluguel.</p>
+						<div class="bar-pack">
+							<h4>Bar Party Day Pack</h4>
+							<div class="pack-price">68.799 KZS</div>
+							<ul>
+								<li>2 Gin Havelock</li>
+								<li>2 Vodka Smirnoff N°21</li>
+								<li>Peroni</li>
+								<li>4 Sprite grandes</li>
+								<li>4 Cola grandes</li>
+								<li>15 Águas + Snacks grátis</li>
+							</ul>
 						</div>
 					</div>
 					<div class="col-md-4 col-sm-6 animate-box">
-						<div class="experience-box">
-							<div class="icon"><i class="icon-wine"></i></div>
-							<h3>Eventos & Festas</h3>
-							<p>Aniversários, corporate, despedidas e celebrações a bordo.</p>
+						<div class="bar-pack">
+							<h4>Bar Gold Pack</h4>
+							<div class="pack-price">75.699 KZS</div>
+							<ul>
+								<li>1 Mateus Rosé + 1 Chandon</li>
+								<li>5 Eka</li>
+								<li>Heineken</li>
+								<li>2 Sprite grandes</li>
+								<li>2 Coca-Cola grandes</li>
+								<li>10 Águas + Snacks grátis</li>
+							</ul>
 						</div>
 					</div>
 					<div class="col-md-4 col-sm-6 animate-box">
-						<div class="experience-box">
-							<div class="icon"><i class="icon-sun"></i></div>
-							<h3>Mussulo</h3>
-							<p>O destino clássico. Areia branca, águas calmas e ambiente paradisíaco.</p>
+						<div class="bar-pack" style="border-top-color: var(--brisa-gold);">
+							<h4>Mini Bar Deluxe Pack</h4>
+							<div class="pack-price">91.399 KZS</div>
+							<ul>
+								<li>2 Gin Havelock</li>
+								<li>2 Vodka Smirnoff N°21</li>
+								<li>1 Mateus Rosé + 1 Chandon</li>
+								<li>5 Eka</li>
+								<li>2 Sprite + 2 Cola grandes</li>
+								<li>10 Águas + Snacks grátis</li>
+							</ul>
 						</div>
 					</div>
 					<div class="col-md-4 col-sm-6 animate-box">
-						<div class="experience-box">
-							<div class="icon"><i class="icon-camera"></i></div>
-							<h3>Fotografia & Conteúdo</h3>
-							<p>Cenários perfeitos para fotos, vídeos e momentos inesquecíveis.</p>
+						<div class="bar-pack" style="border-top-color: #c9a227;">
+							<h4>Mini Bar Extreme Pack</h4>
+							<div class="pack-price">129.199 KZS</div>
+							<ul>
+								<li>1× Moët & Chandon (à sua escolha)</li>
+								<li>+ Snacks grátis</li>
+							</ul>
 						</div>
 					</div>
-					<div class="col-md-4 col-sm-6 animate-box">
-						<div class="experience-box">
-							<div class="icon"><i class="icon-users"></i></div>
-							<h3>Grupos & Famílias</h3>
-							<p>Opções para grupos pequenos e grandes. Capacidade até 30 pessoas.</p>
+				</div>
+			</div>
+		</div>
+
+		<!-- REGRAS -->
+		<div id="regras" class="fh5co-section-gray" style="padding: 80px 0;">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
+						<h3>Regras a Bordo</h3>
+						<p>Para a sua segurança e conforto de todos.</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2">
+						<div class="rule-item animate-box">
+							<strong>1. Proibido fumar no quarto do barco</strong><br>
+							É estritamente proibido fumar dentro da cabine devido ao material interior do barco.
 						</div>
+						<div class="rule-item animate-box">
+							<strong>2. Atenção aos membros da equipe</strong><br>
+							Pedimos que ouça atentamente as instruções dos membros da nossa equipe, pois a sua orientação é fundamental para a sua segurança durante a viagem.
+						</div>
+						<div class="rule-item animate-box">
+							<strong>3. Permanecer sentado até a equipe permitir</strong><br>
+							Para garantir a segurança de todos, solicitamos que permaneça sentado até que os membros da equipe indiquem que é seguro se movimentar pelo barco.
+						</div>
+						<div class="rule-item animate-box">
+							<strong>4. Reserva</strong><br>
+							A reserva deve ser feita com antecedência de dois dias para garantir disponibilidade. Após 24 horas da reserva, não será possível realizar alterações.
+						</div>
+						<div class="rule-item animate-box">
+							<strong>Nota importante</strong><br>
+							Danos ao yacht: <strong>50.000 KZS</strong>
+						</div>
+						<p class="text-center" style="margin-top: 25px; color: #666;">
+							Agradecemos a sua atenção e cooperação para tornar a sua experiência a bordo do <strong>Grupo OK Yacht Brisa do Mar</strong> a mais agradável possível.
+						</p>
 					</div>
 				</div>
 			</div>
@@ -382,27 +499,26 @@
 		</div>
 
 		<!-- CONTACTO -->
-		<div id="contacto" class="fh5co-section-gray" style="padding: 70px 0;">
+		<div id="contacto" style="padding: 70px 0; background: #f8f9fa;">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
 						<h3>Contacto</h3>
-						<p>Estamos prontos para ajudar com a sua reserva.</p>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-4 col-sm-6 text-center animate-box" style="margin-bottom:30px;">
-						<span class="icon" style="font-size:36px; color:#1a8a9c;"><i class="icon-location"></i></span>
+						<span style="font-size:36px; color:#1a8a9c;"><i class="icon-location"></i></span>
 						<h4>Localização</h4>
 						<p>Club Náutico<br>Luanda, Angola</p>
 					</div>
 					<div class="col-md-4 col-sm-6 text-center animate-box" style="margin-bottom:30px;">
-						<span class="icon" style="font-size:36px; color:#25D366;"><i class="icon-phone"></i></span>
+						<span style="font-size:36px; color:#25D366;"><i class="icon-phone"></i></span>
 						<h4>WhatsApp</h4>
 						<p><a href="https://wa.me/244947219310" target="_blank">+244 947 219 310</a></p>
 					</div>
 					<div class="col-md-4 col-sm-6 text-center animate-box" style="margin-bottom:30px;">
-						<span class="icon" style="font-size:36px; color:#E1306C;"><i class="icon-instagram"></i></span>
+						<span style="font-size:36px; color:#E1306C;"><i class="icon-instagram"></i></span>
 						<h4>Instagram</h4>
 						<p><a href="https://www.instagram.com/yachtbrisadomar/" target="_blank">@yachtbrisadomar</a></p>
 					</div>
@@ -413,14 +529,14 @@
 		<footer>
 			<div id="footer">
 				<div class="container">
-					<div class="row row-bottom-padded-md">
+					<div class="row">
 						<div class="col-md-12 text-center">
 							<p class="fh5co-social-icons">
 								<a href="https://www.instagram.com/yachtbrisadomar/" target="_blank"><i class="icon-instagram"></i></a>
 								<a href="https://wa.me/244947219310" target="_blank"><i class="icon-phone"></i></a>
 							</p>
 							<p>
-								<strong>Yacht Brisa do Mar</strong><br>
+								<strong>Grupo OK — Yacht Brisa do Mar</strong><br>
 								Explore com luxo nas ondas de Luanda<br>
 								Club Náutico, Luanda, Angola
 							</p>
@@ -434,42 +550,24 @@
 		</footer>
 
 		</div>
-		<!-- END fh5co-page -->
-
 		</div>
-		<!-- END fh5co-wrapper -->
 
-		<!-- Floating WhatsApp button -->
-		<a href="https://wa.me/244947219310?text=Olá! Gostaria de reservar um iate ou jetski." class="whatsapp-float" target="_blank" title="Falar no WhatsApp">
-			<span style="font-size:28px;">💬</span>
-		</a>
+		<a href="https://wa.me/244947219310?text=Olá! Gostaria de reservar um iate ou jetski." class="whatsapp-float" target="_blank" title="Falar no WhatsApp">💬</a>
 
-		<!-- jQuery -->
 		<script src="js/jquery.min.js"></script>
-		<!-- jQuery Easing -->
 		<script src="js/jquery.easing.1.3.js"></script>
-		<!-- Bootstrap -->
 		<script src="js/bootstrap.min.js"></script>
-		<!-- Waypoints -->
 		<script src="js/jquery.waypoints.min.js"></script>
 		<script src="js/sticky.js"></script>
-
-		<!-- Stellar -->
 		<script src="js/jquery.stellar.min.js"></script>
-		<!-- Superfish -->
 		<script src="js/hoverIntent.js"></script>
 		<script src="js/superfish.js"></script>
-		<!-- Magnific Popup -->
 		<script src="js/jquery.magnific-popup.min.js"></script>
 		<script src="js/magnific-popup-options.js"></script>
-		<!-- Date Picker -->
 		<script src="js/bootstrap-datepicker.min.js"></script>
-		<!-- CS Select -->
 		<script src="js/classie.js"></script>
 		<script src="js/selectFx.js"></script>
-		
-		<!-- Main JS -->
 		<script src="js/main.js"></script>
-
 	</body>
 </html>
+
