@@ -997,49 +997,47 @@
 		})();
 		</script>
 		<script>
-		/* Mobile menu: close drawer, then scroll to section (fixes hash links under transform) */
+		/* Backup: mobile menu link → close + scroll (main logic is in js/main.js) */
 		(function () {
 			function closeMenu() {
 				document.body.classList.remove('fh5co-offcanvas');
 				var toggles = document.querySelectorAll('.js-fh5co-nav-toggle, .fh5co-nav-toggle');
-				for (var i = 0; i < toggles.length; i++) {
-					toggles[i].classList.remove('active');
-				}
+				for (var i = 0; i < toggles.length; i++) toggles[i].classList.remove('active');
 			}
-			function findMenuLink(el) {
-				while (el && el !== document) {
-					if (el.tagName === 'A') {
-						var p = el.parentNode;
-						while (p) {
-							if (p.id === 'offcanvas-menu') return el;
-							p = p.parentNode;
-						}
-						return null;
+			function bindMenuLinks() {
+				var menu = document.getElementById('offcanvas-menu');
+				if (!menu || menu.getAttribute('data-brisa-bound')) return;
+				menu.setAttribute('data-brisa-bound', '1');
+				menu.addEventListener('click', function (e) {
+					var a = e.target;
+					while (a && a !== menu) {
+						if (a.tagName === 'A') break;
+						a = a.parentNode;
 					}
-					el = el.parentNode;
-				}
-				return null;
+					if (!a || a.tagName !== 'A') return;
+					var href = a.getAttribute('href') || '';
+					closeMenu();
+					if (href.charAt(0) === '#' && href.length > 1) {
+						e.preventDefault();
+						e.stopPropagation();
+						var id = href.slice(1);
+						setTimeout(function () {
+							var target = document.getElementById(id);
+							if (!target) return;
+							var header = document.getElementById('fh5co-header-section');
+							var offset = header ? header.offsetHeight : 0;
+							var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+							window.scrollTo(0, top);
+							if (history.replaceState) history.replaceState(null, '', href);
+						}, 320);
+					}
+				});
 			}
-			document.addEventListener('click', function (e) {
-				var a = findMenuLink(e.target);
-				if (!a) return;
-				var href = a.getAttribute('href') || '';
-				closeMenu();
-				if (href.charAt(0) === '#' && href.length > 1) {
-					e.preventDefault();
-					e.stopPropagation();
-					var id = href.slice(1);
-					setTimeout(function () {
-						var target = document.getElementById(id);
-						if (!target) return;
-						var header = document.getElementById('fh5co-header-section');
-						var offset = header ? header.offsetHeight : 0;
-						var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
-						window.scrollTo(0, top);
-						if (history.replaceState) history.replaceState(null, '', href);
-					}, 320);
-				}
-			}, true);
+			if (document.readyState === 'loading') {
+				document.addEventListener('DOMContentLoaded', function () { setTimeout(bindMenuLinks, 150); });
+			} else {
+				setTimeout(bindMenuLinks, 150);
+			}
 		})();
 		</script>
 	</body>
