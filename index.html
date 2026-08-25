@@ -997,7 +997,7 @@
 		})();
 		</script>
 		<script>
-		/* Close mobile offcanvas menu when any menu link is tapped */
+		/* Mobile menu: close drawer, then scroll to section (fixes hash links under transform) */
 		(function () {
 			function closeMenu() {
 				document.body.classList.remove('fh5co-offcanvas');
@@ -1006,29 +1006,40 @@
 					toggles[i].classList.remove('active');
 				}
 			}
-			function onMenuLink(e) {
-				var el = e.target;
+			function findMenuLink(el) {
 				while (el && el !== document) {
-					if (el.id === 'offcanvas-menu') return;
-					if (el.tagName === 'A' && el.closest && el.closest('#offcanvas-menu')) {
-						closeMenu();
-						return;
-					}
-					if (el.tagName === 'A' && el.parentNode) {
+					if (el.tagName === 'A') {
 						var p = el.parentNode;
 						while (p) {
-							if (p.id === 'offcanvas-menu') {
-								closeMenu();
-								return;
-							}
+							if (p.id === 'offcanvas-menu') return el;
 							p = p.parentNode;
 						}
+						return null;
 					}
 					el = el.parentNode;
 				}
+				return null;
 			}
-			document.addEventListener('click', onMenuLink, true);
-			document.addEventListener('touchend', onMenuLink, true);
+			document.addEventListener('click', function (e) {
+				var a = findMenuLink(e.target);
+				if (!a) return;
+				var href = a.getAttribute('href') || '';
+				closeMenu();
+				if (href.charAt(0) === '#' && href.length > 1) {
+					e.preventDefault();
+					e.stopPropagation();
+					var id = href.slice(1);
+					setTimeout(function () {
+						var target = document.getElementById(id);
+						if (!target) return;
+						var header = document.getElementById('fh5co-header-section');
+						var offset = header ? header.offsetHeight : 0;
+						var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+						window.scrollTo(0, top);
+						if (history.replaceState) history.replaceState(null, '', href);
+					}, 320);
+				}
+			}, true);
 		})();
 		</script>
 	</body>
