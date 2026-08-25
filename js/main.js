@@ -75,6 +75,13 @@
 
 		$('#offcanvas-menu').css('height', $(window).height());
 
+		// Close mobile menu when a nav link is tapped (hash links or any link)
+		$('#offcanvas-menu').on('click', 'a', function () {
+			if ($('body').hasClass('fh5co-offcanvas')) {
+				$('body').removeClass('fh5co-offcanvas');
+			}
+		});
+
 		$(window).resize(function(){
 			var w = $(window);
 
