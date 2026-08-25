@@ -40,6 +40,13 @@
 		body { font-family: 'Open Sans', sans-serif; }
 		#fh5co-logo a { font-weight: 700; letter-spacing: 1px; }
 		.fh5co-cover { background-color: var(--brisa-dark) !important; }
+		/* Remove orange overlay — use dark navy instead */
+		.fh5co-cover .fh5co-overlay,
+		.fh5co-hero .fh5co-overlay {
+			background: rgba(10, 22, 40, 0.55) !important;
+			background: linear-gradient(to right, rgba(10, 22, 40, 0.6) 0%, rgba(13, 59, 102, 0.5) 100%) !important;
+			filter: none !important;
+		}
 		.btn-primary { background: var(--brisa-teal) !important; border-color: var(--brisa-teal) !important; }
 		.btn-primary:hover, .btn-primary:focus { background: #147a8a !important; border-color: #147a8a !important; }
 		.btn-outline { border: 2px solid #fff !important; color: #fff !important; background: transparent !important; }
