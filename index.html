@@ -996,6 +996,41 @@
 			}, 10000);
 		})();
 		</script>
+		<script>
+		/* Close mobile offcanvas menu when any menu link is tapped */
+		(function () {
+			function closeMenu() {
+				document.body.classList.remove('fh5co-offcanvas');
+				var toggles = document.querySelectorAll('.js-fh5co-nav-toggle, .fh5co-nav-toggle');
+				for (var i = 0; i < toggles.length; i++) {
+					toggles[i].classList.remove('active');
+				}
+			}
+			function onMenuLink(e) {
+				var el = e.target;
+				while (el && el !== document) {
+					if (el.id === 'offcanvas-menu') return;
+					if (el.tagName === 'A' && el.closest && el.closest('#offcanvas-menu')) {
+						closeMenu();
+						return;
+					}
+					if (el.tagName === 'A' && el.parentNode) {
+						var p = el.parentNode;
+						while (p) {
+							if (p.id === 'offcanvas-menu') {
+								closeMenu();
+								return;
+							}
+							p = p.parentNode;
+						}
+					}
+					el = el.parentNode;
+				}
+			}
+			document.addEventListener('click', onMenuLink, true);
+			document.addEventListener('touchend', onMenuLink, true);
+		})();
+		</script>
 	</body>
 </html>
 
