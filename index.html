@@ -180,14 +180,75 @@
 
 		/* Bar packs */
 		.bar-pack {
-			background: #fff; border-radius: 10px; padding: 25px;
+			background: #fff; border-radius: 12px; padding: 0;
 			box-shadow: 0 5px 20px rgba(0,0,0,0.07); margin-bottom: 25px; height: 100%;
-			border-top: 4px solid var(--brisa-teal);
+			overflow: hidden;
+			border-top: none;
+			display: flex;
+			flex-direction: column;
+			transition: transform 0.3s, box-shadow 0.3s;
 		}
-		.bar-pack h4 { margin-top: 0; color: var(--brisa-dark); }
-		.bar-pack .pack-price { font-size: 22px; font-weight: 700; color: var(--brisa-teal); margin: 10px 0 15px; }
+		.bar-pack:hover {
+			transform: translateY(-4px);
+			box-shadow: 0 10px 28px rgba(0,0,0,0.12);
+		}
+		.bar-pack .pack-img-wrap {
+			width: 100%;
+			height: 180px;
+			min-height: 180px;
+			max-height: 180px;
+			overflow: hidden;
+			position: relative;
+			flex-shrink: 0;
+			background: #0d3b66;
+		}
+		.bar-pack .pack-img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: center center;
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		.bar-pack .pack-img-placeholder {
+			width: 100%;
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+			gap: 8px;
+			color: #fff;
+			font-size: 42px;
+			line-height: 1;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		.bar-pack .pack-img-placeholder span.label {
+			font-size: 13px;
+			font-weight: 600;
+			letter-spacing: 1px;
+			text-transform: uppercase;
+			opacity: 0.9;
+		}
+		.bar-pack .pack-body {
+			padding: 22px 22px 24px;
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+		}
+		.bar-pack h4 { margin-top: 0; margin-bottom: 6px; color: var(--brisa-dark); }
+		.bar-pack .pack-price { font-size: 22px; font-weight: 700; color: var(--brisa-teal); margin: 0 0 14px; }
 		.bar-pack ul { padding-left: 18px; margin-bottom: 0; font-size: 14px; color: #555; }
 		.bar-pack ul li { margin-bottom: 4px; }
+		.bar-pack.pack-bronze .pack-img-placeholder { background: linear-gradient(135deg, #8B6914 0%, #CD7F32 50%, #A67C52 100%); }
+		.bar-pack.pack-party .pack-img-placeholder { background: linear-gradient(135deg, #0d3b66 0%, #1a8a9c 100%); }
+		.bar-pack.pack-gold .pack-img-placeholder { background: linear-gradient(135deg, #b8860b 0%, #c9a227 50%, #e8c547 100%); }
+		.bar-pack.pack-deluxe .pack-img-placeholder { background: linear-gradient(135deg, #0a1628 0%, #1a4a6e 50%, #c9a227 100%); }
+		.bar-pack.pack-extreme .pack-img-placeholder { background: linear-gradient(135deg, #1a0a2e 0%, #4a1a6e 40%, #c9a227 100%); }
 
 		/* Rules */
 		.rule-item {
@@ -555,68 +616,98 @@
 				</div>
 				<div class="row">
 					<div class="col-md-4 col-sm-6 animate-box">
-						<div class="bar-pack">
-							<h4>Bar Bronze Pack</h4>
-							<div class="pack-price">26.599 KZS</div>
-							<ul>
-								<li>5 Smirnoff Preta / Vermelha</li>
-								<li>5 Cuca</li>
-								<li>5 Coca-Cola</li>
-								<li>5 Sprite</li>
-								<li data-i18n="bar.bronze.r5">10 Águas + Snacks grátis</li>
-							</ul>
+						<div class="bar-pack pack-bronze">
+							<div class="pack-img-wrap">
+								<img class="pack-img" src="images/bar/bronze.jpg" alt="Bar Bronze Pack" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+								<div class="pack-img-placeholder" style="display:none;">🍺<span class="label">Bronze</span></div>
+							</div>
+							<div class="pack-body">
+								<h4>Bar Bronze Pack</h4>
+								<div class="pack-price">26.599 KZS</div>
+								<ul>
+									<li>5 Smirnoff Preta / Vermelha</li>
+									<li>5 Cuca</li>
+									<li>5 Coca-Cola</li>
+									<li>5 Sprite</li>
+									<li data-i18n="bar.bronze.r5">10 Águas + Snacks grátis</li>
+								</ul>
+							</div>
 						</div>
 					</div>
 					<div class="col-md-4 col-sm-6 animate-box">
-						<div class="bar-pack">
-							<h4>Bar Party Day Pack</h4>
-							<div class="pack-price">68.799 KZS</div>
-							<ul>
-								<li>2 Gin Havelock</li>
-								<li>2 Vodka Smirnoff N°21</li>
-								<li>Peroni</li>
-								<li>4 Sprite grandes</li>
-								<li>4 Cola grandes</li>
-								<li data-i18n="bar.party.r6">15 Águas + Snacks grátis</li>
-							</ul>
+						<div class="bar-pack pack-party">
+							<div class="pack-img-wrap">
+								<img class="pack-img" src="images/bar/party.jpg" alt="Bar Party Day Pack" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+								<div class="pack-img-placeholder" style="display:none;">🍸<span class="label">Party Day</span></div>
+							</div>
+							<div class="pack-body">
+								<h4>Bar Party Day Pack</h4>
+								<div class="pack-price">68.799 KZS</div>
+								<ul>
+									<li>2 Gin Havelock</li>
+									<li>2 Vodka Smirnoff N°21</li>
+									<li>Peroni</li>
+									<li>4 Sprite grandes</li>
+									<li>4 Cola grandes</li>
+									<li data-i18n="bar.party.r6">15 Águas + Snacks grátis</li>
+								</ul>
+							</div>
 						</div>
 					</div>
 					<div class="col-md-4 col-sm-6 animate-box">
-						<div class="bar-pack">
-							<h4>Bar Gold Pack</h4>
-							<div class="pack-price">75.699 KZS</div>
-							<ul>
-								<li>1 Mateus Rosé + 1 Chandon</li>
-								<li>5 Eka</li>
-								<li>Heineken</li>
-								<li>2 Sprite grandes</li>
-								<li>2 Coca-Cola grandes</li>
-								<li data-i18n="bar.gold.r6">10 Águas + Snacks grátis</li>
-							</ul>
+						<div class="bar-pack pack-gold">
+							<div class="pack-img-wrap">
+								<img class="pack-img" src="images/bar/gold.jpg" alt="Bar Gold Pack" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+								<div class="pack-img-placeholder" style="display:none;">🥂<span class="label">Gold</span></div>
+							</div>
+							<div class="pack-body">
+								<h4>Bar Gold Pack</h4>
+								<div class="pack-price">75.699 KZS</div>
+								<ul>
+									<li>1 Mateus Rosé + 1 Chandon</li>
+									<li>5 Eka</li>
+									<li>Heineken</li>
+									<li>2 Sprite grandes</li>
+									<li>2 Coca-Cola grandes</li>
+									<li data-i18n="bar.gold.r6">10 Águas + Snacks grátis</li>
+								</ul>
+							</div>
 						</div>
 					</div>
 					<div class="col-md-4 col-sm-6 animate-box">
-						<div class="bar-pack" style="border-top-color: var(--brisa-gold);">
-							<h4>Mini Bar Deluxe Pack</h4>
-							<div class="pack-price">91.399 KZS</div>
-							<ul>
-								<li>2 Gin Havelock</li>
-								<li>2 Vodka Smirnoff N°21</li>
-								<li>1 Mateus Rosé + 1 Chandon</li>
-								<li>5 Eka</li>
-								<li>2 Sprite + 2 Cola grandes</li>
-								<li data-i18n="bar.deluxe.r6">10 Águas + Snacks grátis</li>
-							</ul>
+						<div class="bar-pack pack-deluxe">
+							<div class="pack-img-wrap">
+								<img class="pack-img" src="images/bar/deluxe.jpg" alt="Mini Bar Deluxe Pack" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+								<div class="pack-img-placeholder" style="display:none;">🍾<span class="label">Deluxe</span></div>
+							</div>
+							<div class="pack-body">
+								<h4>Mini Bar Deluxe Pack</h4>
+								<div class="pack-price">91.399 KZS</div>
+								<ul>
+									<li>2 Gin Havelock</li>
+									<li>2 Vodka Smirnoff N°21</li>
+									<li>1 Mateus Rosé + 1 Chandon</li>
+									<li>5 Eka</li>
+									<li>2 Sprite + 2 Cola grandes</li>
+									<li data-i18n="bar.deluxe.r6">10 Águas + Snacks grátis</li>
+								</ul>
+							</div>
 						</div>
 					</div>
 					<div class="col-md-4 col-sm-6 animate-box">
-						<div class="bar-pack" style="border-top-color: #c9a227;">
-							<h4>Mini Bar Extreme Pack</h4>
-							<div class="pack-price">129.199 KZS</div>
-							<ul>
-								<li data-i18n="bar.moet">1× Moët & Chandon (à sua escolha)</li>
-								<li data-i18n="bar.extreme.r2">+ Snacks grátis</li>
-							</ul>
+						<div class="bar-pack pack-extreme">
+							<div class="pack-img-wrap">
+								<img class="pack-img" src="images/bar/extreme.jpg" alt="Mini Bar Extreme Pack" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+								<div class="pack-img-placeholder" style="display:none;">✨<span class="label">Extreme</span></div>
+							</div>
+							<div class="pack-body">
+								<h4>Mini Bar Extreme Pack</h4>
+								<div class="pack-price">129.199 KZS</div>
+								<ul>
+									<li data-i18n="bar.moet">1× Moët & Chandon (à sua escolha)</li>
+									<li data-i18n="bar.extreme.r2">+ Snacks grátis</li>
+								</ul>
+							</div>
 						</div>
 					</div>
 				</div>
