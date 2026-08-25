@@ -198,48 +198,62 @@
 		.rule-item strong { color: var(--brisa-dark); }
 		.about-text { font-size: 17px; line-height: 1.7; color: #444; max-width: 800px; margin: 0 auto; }
 
-		/* Language switcher */
+		/* Language switcher — outside Superfish menu so clicks always work */
+		.nav-header {
+			position: relative;
+		}
+		#fh5co-menu-wrap {
+			margin-right: 90px !important;
+		}
 		.lang-switcher {
+			position: absolute;
+			right: 0;
+			top: 28px;
 			display: inline-flex;
 			align-items: center;
-			gap: 2px;
-			margin-left: 12px;
-			vertical-align: middle;
+			gap: 4px;
+			z-index: 1030;
+			pointer-events: auto;
 		}
 		.lang-btn {
 			background: transparent;
-			border: 1px solid rgba(255,255,255,0.35);
-			color: rgba(255,255,255,0.75);
+			border: 1px solid rgba(255,255,255,0.4);
+			color: rgba(255,255,255,0.85);
 			font-size: 12px;
 			font-weight: 700;
 			letter-spacing: 0.5px;
-			padding: 4px 10px;
+			padding: 6px 12px;
 			cursor: pointer;
 			border-radius: 4px;
 			transition: all 0.2s;
 			line-height: 1.2;
+			pointer-events: auto;
+			-webkit-appearance: none;
+			appearance: none;
+			font-family: inherit;
+			user-select: none;
 		}
 		.lang-btn:hover {
 			color: #fff;
-			border-color: rgba(255,255,255,0.7);
+			border-color: rgba(255,255,255,0.85);
+			background: rgba(255,255,255,0.1);
 		}
 		.lang-btn.active {
 			background: var(--brisa-teal);
 			border-color: var(--brisa-teal);
 			color: #fff;
 		}
-		.sf-menu > li.lang-li {
-			margin-left: 8px;
-		}
 		@media screen and (max-width: 768px) {
-			.lang-switcher {
-				margin: 12px 0 0;
-				display: flex;
-				justify-content: center;
+			#fh5co-menu-wrap {
+				margin-right: 0 !important;
 			}
-			.sf-menu > li.lang-li {
-				margin-left: 0;
-				text-align: center;
+			.lang-switcher {
+				right: 48px;
+				top: 14px;
+			}
+			.lang-btn {
+				padding: 5px 10px;
+				font-size: 11px;
 			}
 		}
 
@@ -291,14 +305,12 @@
 							<li><a href="#regras" data-i18n="nav.rules">Regras</a></li>
 							<li><a href="#contacto" data-i18n="nav.contact">Contacto</a></li>
 							<li><a href="https://wa.me/244947219310" target="_blank" style="color:#25D366 !important;" data-i18n="nav.whatsapp">WhatsApp</a></li>
-							<li class="lang-li">
-								<span class="lang-switcher" role="group" aria-label="Language">
-									<button type="button" class="lang-btn active" data-lang="pt" aria-pressed="true">PT</button>
-									<button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
-								</span>
-							</li>
 						</ul>
 					</nav>
+					<div class="lang-switcher" id="lang-switcher" role="group" aria-label="Language">
+						<button type="button" class="lang-btn active" data-lang="pt" aria-pressed="true">PT</button>
+						<button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+					</div>
 				</div>
 			</div>
 		</header>
