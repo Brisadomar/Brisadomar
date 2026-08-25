@@ -80,11 +80,14 @@
 			$('body').removeClass('fh5co-offcanvas');
 			$('.js-fh5co-nav-toggle').removeClass('active');
 		}
-		$(document).on('click', '#offcanvas-menu a', function (e) {
+
+		// Only react to real taps on links inside the menu (not accidental outside touches)
+		$('#offcanvas-menu').on('click', 'a', function (e) {
 			var href = $(this).attr('href') || '';
 			closeOffcanvas();
 			if (href.charAt(0) === '#' && href.length > 1) {
 				e.preventDefault();
+				e.stopPropagation();
 				var id = href.slice(1);
 				setTimeout(function () {
 					var target = document.getElementById(id);
@@ -92,7 +95,7 @@
 					var header = document.getElementById('fh5co-header-section');
 					var offset = header ? header.offsetHeight : 0;
 					var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
-					window.scrollTo({ top: top, behavior: 'smooth' });
+					window.scrollTo(0, top);
 					if (history.replaceState) {
 						history.replaceState(null, '', href);
 					}
@@ -118,15 +121,16 @@
 
 	
 
-	// Click outside of the Mobile Menu
+	// Close only when user taps the main page content (not the whole document — too sensitive on phones)
 	var mobileMenuOutsideClick = function() {
-		$(document).click(function (e) {
-	    var container = $("#offcanvas-menu, .js-fh5co-nav-toggle");
-	    if (!container.is(e.target) && container.has(e.target).length === 0) {
-	      if ( $('body').hasClass('fh5co-offcanvas') ) {
-				$('body').removeClass('fh5co-offcanvas');
+		$(document).on('click', '#fh5co-page', function (e) {
+			if (!$('body').hasClass('fh5co-offcanvas')) return;
+			// Ignore taps that are on the offcanvas menu or the burger
+			if ($(e.target).closest('#offcanvas-menu, .js-fh5co-nav-toggle, .fh5co-nav-toggle').length) {
+				return;
 			}
-	    }
+			$('body').removeClass('fh5co-offcanvas');
+			$('.js-fh5co-nav-toggle').removeClass('active');
 		});
 	};
 
