@@ -308,8 +308,8 @@
 						</ul>
 					</nav>
 					<div class="lang-switcher" id="lang-switcher" role="group" aria-label="Language">
-						<button type="button" class="lang-btn active" data-lang="pt" aria-pressed="true">PT</button>
-						<button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+						<button type="button" class="lang-btn active" data-lang="pt" aria-pressed="true" onclick="window.BrisaI18n&&window.BrisaI18n.setLang('pt');return false;">PT</button>
+						<button type="button" class="lang-btn" data-lang="en" aria-pressed="false" onclick="window.BrisaI18n&&window.BrisaI18n.setLang('en');return false;">EN</button>
 					</div>
 				</div>
 			</div>
@@ -751,7 +751,134 @@
 		<script src="js/classie.js"></script>
 		<script src="js/selectFx.js"></script>
 		<script src="js/main.js"></script>
-		<script src="js/i18n.js"></script>
+		<!-- PT / EN translations — inline so it always works even without js/i18n.js -->
+		<script>
+		(function () {
+			'use strict';
+			var translations = {
+				pt: {
+					'page.title': 'Yacht Brisa do Mar — Aluguel de Iates & Jetski em Luanda',
+					'page.description': 'Alugue iates e jetskis de luxo em Luanda. Explore Mussulo, Baía e Ponto Final com a Brisa do Mar. Yacht, jetski e eventos.',
+					'nav.home': 'Início', 'nav.fleet': 'Frota', 'nav.prices': 'Preços', 'nav.bar': 'Bar', 'nav.rules': 'Regras', 'nav.contact': 'Contacto', 'nav.whatsapp': 'WhatsApp',
+					'hero.tagline': '🌊 Explore com luxo nas ondas de Luanda',
+					'hero.subtitle': 'Embarque em uma experiência única de luxo e liberdade. Navegue pela Baía, Clube Náutico, Ilha de Luanda e Mussulo.',
+					'hero.book': 'Reservar no WhatsApp', 'hero.prices': 'Ver Preços', 'hero.wa_text': 'Olá! Gostaria de reservar um iate ou jetski.',
+					'about.title': 'A Experiência Brisa do Mar',
+					'about.text': 'Embarque em uma experiência única de luxo e liberdade com a nossa companhia de aluguel de yachts e jetski! Navegue pelas águas cristalinas da Baía, explore o Clube Náutico, contemple a beleza da Ilha de Luanda e desfrute do Mussulo. Oferecemos serviços exclusivos para até 10 pessoas, com um garçom a bordo pronto para atender e um bar. Mergulhe em alto mar, dance ao som da música e desfrute de um tempo flexível feito sob medida para você. Venha viver a essência da elegância e do relaxamento conosco.',
+					'fleet.title': 'A Nossa Frota', 'fleet.subtitle': 'Escolha o barco ideal para o seu grupo.',
+					'fleet.santaluzia.capacity': '15 – 20 pessoas · 46 pés', 'fleet.santaluzia.r1': '3 quartos', 'fleet.santaluzia.r2': '2 banheiros', 'fleet.santaluzia.r3': '1 sala',
+					'fleet.catamara.capacity': 'Até 30 pessoas · 45 pés', 'fleet.catamara.r1': '3 camas de casal', 'fleet.catamara.r2': '2 camas de solteiro', 'fleet.catamara.r3': '4 WC náuticos', 'fleet.catamara.r4': 'Mesas para 6 e 12 pessoas',
+					'fleet.brisa.capacity': 'Até 10 pessoas', 'fleet.brisa.r1': '1 quarto com 2 camas', 'fleet.brisa.r2': '1 mesa', 'fleet.brisa.r3': '1 banheiro',
+					'fleet.book': 'Reservar', 'fleet.wa_santaluzia': 'Olá! Quero reservar o Santa Luzia.', 'fleet.wa_catamara': 'Olá! Quero reservar o Catamarã.', 'fleet.wa_brisa': 'Olá! Quero reservar o Brisa do Mar.',
+					'prices.title': 'Preços & Pacotes', 'prices.subtitle': 'Valores em Kwanzas (KZS). Reserva com 2 dias de antecedência.',
+					'prices.normal.title': 'Viagens Normais', 'prices.normal.desc': 'Mussulo · Clube Náutico · Baía · Embarcadouro · Ponto Final · Máx. 9 pessoas',
+					'prices.special.title': 'Viagens Especiais', 'prices.special.desc': 'Relaxar no barco alto mar com música',
+					'prices.offshore.title': 'Alto Mar com Música', 'prices.offshore.desc': 'Relaxar no barco — pacote premium',
+					'prices.club.title': 'Clube Náutico · Baía · Ponto Final', 'prices.club.desc': 'Partida e destino à sua escolha · Máx. 9 pessoas',
+					'prices.crossing': 'Atravessar Embarcadouro ↔ Mussulo', 'prices.crossing.detail': '9 pessoas · ', 'prices.book': 'Reservar agora no WhatsApp', 'prices.wa_text': 'Olá! Gostaria de saber disponibilidade e reservar.',
+					'bar.title': 'Temos Bebidas a Bordo', 'bar.subtitle': 'Escolha o pack ideal para a sua experiência. Snacks grátis inclusos.',
+					'bar.bronze.r5': '10 Águas + Snacks grátis', 'bar.party.r6': '15 Águas + Snacks grátis', 'bar.gold.r6': '10 Águas + Snacks grátis', 'bar.deluxe.r6': '10 Águas + Snacks grátis', 'bar.extreme.r2': '+ Snacks grátis', 'bar.moet': '1× Moët & Chandon (à sua escolha)',
+					'rules.title': 'Regras a Bordo', 'rules.subtitle': 'Para a sua segurança e conforto de todos.',
+					'rules.1.title': '1. Proibido fumar no quarto do barco', 'rules.1.text': 'É estritamente proibido fumar dentro da cabine devido ao material interior do barco.',
+					'rules.2.title': '2. Atenção aos membros da equipe', 'rules.2.text': 'Pedimos que ouça atentamente as instruções dos membros da nossa equipe, pois a sua orientação é fundamental para a sua segurança durante a viagem.',
+					'rules.3.title': '3. Permanecer sentado até a equipe permitir', 'rules.3.text': 'Para garantir a segurança de todos, solicitamos que permaneça sentado até que os membros da equipe indiquem que é seguro se movimentar pelo barco.',
+					'rules.4.title': '4. Reserva', 'rules.4.text': 'A reserva deve ser feita com antecedência de dois dias para garantir disponibilidade. Após 24 horas da reserva, não será possível realizar alterações.',
+					'rules.note.title': 'Nota importante', 'rules.note.text': 'Danos ao yacht: ',
+					'rules.thanks': 'Agradecemos a sua atenção e cooperação para tornar a sua experiência a bordo do <strong>Grupo OK Yacht Brisa do Mar</strong> a mais agradável possível.',
+					'cta.title': 'Pronto para navegar?', 'cta.text': 'Fale connosco agora no WhatsApp e reserve o seu iate ou jetski.', 'cta.button': '💬 Conversar no WhatsApp', 'cta.wa_text': 'Olá! Gostaria de saber disponibilidade e preços.',
+					'contact.title': 'Contacto', 'contact.location': 'Localização', 'contact.location.text': 'Club Náutico<br>Luanda, Angola',
+					'footer.tagline': 'Explore com luxo nas ondas de Luanda', 'footer.rights': '© 2026 Yacht Brisa do Mar. Todos os direitos reservados.',
+					'wa.float_title': 'Falar no WhatsApp', 'wa.float_text': 'Olá! Gostaria de reservar um iate ou jetski.'
+				},
+				en: {
+					'page.title': 'Yacht Brisa do Mar — Yacht & Jetski Rental in Luanda',
+					'page.description': 'Rent luxury yachts and jetskis in Luanda. Explore Mussulo, the Bay and Ponto Final with Brisa do Mar. Yacht, jetski and events.',
+					'nav.home': 'Home', 'nav.fleet': 'Fleet', 'nav.prices': 'Prices', 'nav.bar': 'Bar', 'nav.rules': 'Rules', 'nav.contact': 'Contact', 'nav.whatsapp': 'WhatsApp',
+					'hero.tagline': '🌊 Explore in luxury on the waves of Luanda',
+					'hero.subtitle': 'Embark on a unique experience of luxury and freedom. Sail the Bay, Clube Náutico, Ilha de Luanda and Mussulo.',
+					'hero.book': 'Book on WhatsApp', 'hero.prices': 'View Prices', 'hero.wa_text': 'Hello! I would like to book a yacht or jetski.',
+					'about.title': 'The Brisa do Mar Experience',
+					'about.text': 'Embark on a unique experience of luxury and freedom with our yacht and jetski rental company! Sail the crystal-clear waters of the Bay, explore Clube Náutico, enjoy the beauty of Ilha de Luanda and relax at Mussulo. We offer exclusive services for up to 10 people, with a waiter on board ready to serve and a bar. Dive into the open sea, dance to the music and enjoy flexible time tailored to you. Come live the essence of elegance and relaxation with us.',
+					'fleet.title': 'Our Fleet', 'fleet.subtitle': 'Choose the ideal boat for your group.',
+					'fleet.santaluzia.capacity': '15 – 20 people · 46 ft', 'fleet.santaluzia.r1': '3 cabins', 'fleet.santaluzia.r2': '2 bathrooms', 'fleet.santaluzia.r3': '1 living room',
+					'fleet.catamara.capacity': 'Up to 30 people · 45 ft', 'fleet.catamara.r1': '3 double beds', 'fleet.catamara.r2': '2 single beds', 'fleet.catamara.r3': '4 marine WCs', 'fleet.catamara.r4': 'Tables for 6 and 12 people',
+					'fleet.brisa.capacity': 'Up to 10 people', 'fleet.brisa.r1': '1 cabin with 2 beds', 'fleet.brisa.r2': '1 table', 'fleet.brisa.r3': '1 bathroom',
+					'fleet.book': 'Book', 'fleet.wa_santaluzia': 'Hello! I want to book the Santa Luzia.', 'fleet.wa_catamara': 'Hello! I want to book the Catamaran.', 'fleet.wa_brisa': 'Hello! I want to book the Brisa do Mar.',
+					'prices.title': 'Prices & Packages', 'prices.subtitle': 'Prices in Kwanzas (KZS). Book at least 2 days in advance.',
+					'prices.normal.title': 'Standard Trips', 'prices.normal.desc': 'Mussulo · Clube Náutico · Bay · Embarcadouro · Ponto Final · Max. 9 people',
+					'prices.special.title': 'Special Trips', 'prices.special.desc': 'Relax on the boat on the open sea with music',
+					'prices.offshore.title': 'Open Sea with Music', 'prices.offshore.desc': 'Relax on the boat — premium package',
+					'prices.club.title': 'Clube Náutico · Bay · Ponto Final', 'prices.club.desc': 'Departure and destination of your choice · Max. 9 people',
+					'prices.crossing': 'Crossing Embarcadouro ↔ Mussulo', 'prices.crossing.detail': '9 people · ', 'prices.book': 'Book now on WhatsApp', 'prices.wa_text': 'Hello! I would like to check availability and book.',
+					'bar.title': 'Drinks On Board', 'bar.subtitle': 'Choose the ideal pack for your experience. Free snacks included.',
+					'bar.bronze.r5': '10 Waters + Free snacks', 'bar.party.r6': '15 Waters + Free snacks', 'bar.gold.r6': '10 Waters + Free snacks', 'bar.deluxe.r6': '10 Waters + Free snacks', 'bar.extreme.r2': '+ Free snacks', 'bar.moet': '1× Moët & Chandon (your choice)',
+					'rules.title': 'On-Board Rules', 'rules.subtitle': 'For your safety and everyone’s comfort.',
+					'rules.1.title': '1. No smoking in the cabin', 'rules.1.text': 'Smoking inside the cabin is strictly prohibited due to the boat’s interior materials.',
+					'rules.2.title': '2. Listen to the crew', 'rules.2.text': 'Please listen carefully to the instructions from our crew members — their guidance is essential for your safety during the trip.',
+					'rules.3.title': '3. Remain seated until the crew allows', 'rules.3.text': 'To ensure everyone’s safety, please remain seated until the crew indicates it is safe to move around the boat.',
+					'rules.4.title': '4. Booking', 'rules.4.text': 'Bookings must be made at least two days in advance to guarantee availability. Changes are not possible after 24 hours from the booking.',
+					'rules.note.title': 'Important note', 'rules.note.text': 'Damage to the yacht: ',
+					'rules.thanks': 'Thank you for your attention and cooperation in making your experience on board <strong>Grupo OK Yacht Brisa do Mar</strong> as pleasant as possible.',
+					'cta.title': 'Ready to set sail?', 'cta.text': 'Message us now on WhatsApp and book your yacht or jetski.', 'cta.button': '💬 Chat on WhatsApp', 'cta.wa_text': 'Hello! I would like to check availability and prices.',
+					'contact.title': 'Contact', 'contact.location': 'Location', 'contact.location.text': 'Club Náutico<br>Luanda, Angola',
+					'footer.tagline': 'Explore in luxury on the waves of Luanda', 'footer.rights': '© 2026 Yacht Brisa do Mar. All rights reserved.',
+					'wa.float_title': 'Chat on WhatsApp', 'wa.float_text': 'Hello! I would like to book a yacht or jetski.'
+				}
+			};
+			var currentLang = 'pt';
+			function getLang() {
+				try { var s = localStorage.getItem('brisa_lang'); if (s === 'pt' || s === 'en') return s; } catch (e) {}
+				var nav = (navigator.language || navigator.userLanguage || 'pt').toLowerCase();
+				return nav.indexOf('en') === 0 ? 'en' : 'pt';
+			}
+			function t(key) {
+				var d = translations[currentLang] || translations.pt;
+				return d[key] != null ? d[key] : (translations.pt[key] || key);
+			}
+			function applyTranslations() {
+				document.querySelectorAll('[data-i18n]').forEach(function (el) {
+					var key = el.getAttribute('data-i18n'), val = t(key);
+					if (el.getAttribute('data-i18n-html') === 'true') el.innerHTML = val; else el.textContent = val;
+				});
+				document.querySelectorAll('[data-i18n-title]').forEach(function (el) {
+					el.setAttribute('title', t(el.getAttribute('data-i18n-title')));
+				});
+				document.title = t('page.title');
+				var m = document.querySelector('meta[name="description"]'); if (m) m.setAttribute('content', t('page.description'));
+				var ot = document.querySelector('meta[property="og:title"]'); if (ot) ot.setAttribute('content', t('page.title'));
+				var od = document.querySelector('meta[property="og:description"]'); if (od) od.setAttribute('content', t('page.description'));
+			}
+			function updateSwitcher() {
+				document.querySelectorAll('.lang-btn').forEach(function (btn) {
+					var lang = btn.getAttribute('data-lang');
+					if (lang === currentLang) { btn.classList.add('active'); btn.setAttribute('aria-pressed', 'true'); }
+					else { btn.classList.remove('active'); btn.setAttribute('aria-pressed', 'false'); }
+				});
+			}
+			function updateWhatsAppLinks() {
+				var map = { 'hero-book': 'hero.wa_text', 'fleet-santaluzia': 'fleet.wa_santaluzia', 'fleet-catamara': 'fleet.wa_catamara', 'fleet-brisa': 'fleet.wa_brisa', 'prices-book': 'prices.wa_text', 'cta-book': 'cta.wa_text', 'float-wa': 'wa.float_text' };
+				Object.keys(map).forEach(function (id) {
+					var el = document.getElementById(id); if (!el) return;
+					el.href = 'https://wa.me/244947219310?text=' + encodeURIComponent(t(map[id]));
+				});
+			}
+			function setLang(lang) {
+				if (!translations[lang]) lang = 'pt';
+				currentLang = lang;
+				try { localStorage.setItem('brisa_lang', lang); } catch (e) {}
+				document.documentElement.lang = lang === 'en' ? 'en' : 'pt';
+				applyTranslations();
+				updateSwitcher();
+				updateWhatsAppLinks();
+			}
+			window.BrisaI18n = { setLang: setLang, t: t, getLang: function () { return currentLang; } };
+			currentLang = getLang();
+			document.documentElement.lang = currentLang === 'en' ? 'en' : 'pt';
+			applyTranslations();
+			updateSwitcher();
+			updateWhatsAppLinks();
+		})();
+		</script>
 		<script>
 		(function () {
 			var slides = document.querySelectorAll('.hero-slide');
@@ -761,7 +888,6 @@
 				videos.push(slide.querySelector('video'));
 			});
 			var i = 0;
-			// Start first video
 			if (videos[0]) {
 				videos[0].play().catch(function () {});
 			}
