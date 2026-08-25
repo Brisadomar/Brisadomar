@@ -75,13 +75,29 @@
 
 		$('#offcanvas-menu').css('height', $(window).height());
 
-		// Close mobile menu when a nav link is tapped (works on iOS + Android)
+		// Close menu + scroll to section (hash links break if page is still transformed)
 		function closeOffcanvas() {
 			$('body').removeClass('fh5co-offcanvas');
 			$('.js-fh5co-nav-toggle').removeClass('active');
 		}
-		$(document).on('click touchstart', '#offcanvas-menu a', function (e) {
+		$(document).on('click', '#offcanvas-menu a', function (e) {
+			var href = $(this).attr('href') || '';
 			closeOffcanvas();
+			if (href.charAt(0) === '#' && href.length > 1) {
+				e.preventDefault();
+				var id = href.slice(1);
+				setTimeout(function () {
+					var target = document.getElementById(id);
+					if (!target) return;
+					var header = document.getElementById('fh5co-header-section');
+					var offset = header ? header.offsetHeight : 0;
+					var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+					window.scrollTo({ top: top, behavior: 'smooth' });
+					if (history.replaceState) {
+						history.replaceState(null, '', href);
+					}
+				}, 320);
+			}
 		});
 
 		$(window).resize(function(){
