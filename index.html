@@ -38,7 +38,24 @@
 			--brisa-gold: #c9a227;
 		}
 		body { font-family: 'Open Sans', sans-serif; }
-		#fh5co-logo a { font-weight: 700; letter-spacing: 1px; }
+		#fh5co-logo a {
+			font-weight: 700;
+			letter-spacing: 1px;
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			color: #fff !important;
+		}
+		#fh5co-logo a:hover,
+		#fh5co-logo a:focus { color: var(--brisa-teal) !important; }
+		#fh5co-logo img {
+			height: 42px;
+			width: auto;
+			display: block;
+		}
+		@media screen and (max-width: 768px) {
+			#fh5co-logo img { height: 36px; }
+		}
 		.fh5co-cover { background-color: var(--brisa-dark) !important; }
 		/* Remove orange overlay — use dark navy instead */
 		.fh5co-cover .fh5co-overlay,
@@ -171,7 +188,7 @@
 			<div class="container">
 				<div class="nav-header">
 					<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
-					<h1 id="fh5co-logo"><a href="index.html">Brisa do Mar</a></h1>
+					<h1 id="fh5co-logo"><a href="index.html"><img src="logo.png" alt="Brisa do Mar"> Brisa do Mar</a></h1>
 					<nav id="fh5co-menu-wrap" role="navigation">
 						<ul class="sf-menu" id="fh5co-primary-menu">
 							<li class="active"><a href="index.html">Início</a></li>
