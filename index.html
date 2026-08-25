@@ -124,6 +124,30 @@
 		}
 		.rule-item strong { color: var(--brisa-dark); }
 		.about-text { font-size: 17px; line-height: 1.7; color: #444; max-width: 800px; margin: 0 auto; }
+
+		/* Fix: keep hero text visible on mobile */
+		@media screen and (max-width: 768px) {
+			.fh5co-cover .desc .desc2 {
+				display: block !important;
+				padding-top: 80px !important;
+			}
+			.fh5co-cover .desc .desc2 h2 {
+				font-size: 28px !important;
+			}
+			.fh5co-cover .desc .desc2 p {
+				font-size: 15px !important;
+			}
+			.fh5co-cover .desc .desc2 .hero-tagline {
+				font-size: 13px !important;
+				letter-spacing: 1px;
+			}
+			.fh5co-cover .desc .desc2 .btn {
+				display: block;
+				width: 100%;
+				max-width: 280px;
+				margin: 8px auto !important;
+			}
+		}
 	</style>
 
 	<script src="js/modernizr-2.6.2.min.js"></script>
