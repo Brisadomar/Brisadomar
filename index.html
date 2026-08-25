@@ -16,8 +16,9 @@
 	<meta property="og:site_name" content="Yacht Brisa do Mar"/>
 	<meta property="og:description" content="Aluguel de iates e jetskis em Luanda, Angola. Yacht, jetski e eventos."/>
 
-	<link rel="icon" type="image/png" href="favicon.png">
-	<link rel="shortcut icon" href="favicon.png">
+	<link rel="icon" type="image/png" href="favicon.png?v=2">
+	<link rel="shortcut icon" type="image/png" href="favicon.png?v=2">
+	<link rel="apple-touch-icon" href="favicon.png?v=2">
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
 	
 	<link rel="stylesheet" href="css/animate.css">
@@ -57,47 +58,58 @@
 			#fh5co-logo img { height: 36px; }
 		}
 		.fh5co-cover { background-color: var(--brisa-dark) !important; }
-		/* Remove orange overlay — use dark navy instead */
+		/* Lighter dark overlay so videos stay visible */
 		.fh5co-cover .fh5co-overlay,
 		.fh5co-hero .fh5co-overlay {
-			background: rgba(10, 22, 40, 0.55) !important;
-			background: linear-gradient(to right, rgba(10, 22, 40, 0.6) 0%, rgba(13, 59, 102, 0.5) 100%) !important;
+			background: rgba(10, 22, 40, 0.35) !important;
+			background: linear-gradient(to bottom, rgba(10, 22, 40, 0.45) 0%, rgba(10, 22, 40, 0.25) 100%) !important;
 			filter: none !important;
 		}
 		/* Hero video slideshow */
 		.fh5co-hero {
 			position: relative;
 			overflow: hidden;
+			height: 800px;
+		}
+		@media screen and (max-width: 768px) {
+			.fh5co-hero { height: 700px; }
 		}
 		.hero-slides {
 			position: absolute;
 			top: 0; left: 0; right: 0; bottom: 0;
 			z-index: 0;
 			background: #0a1628;
+			width: 100%;
+			height: 100%;
 		}
 		.hero-slide {
 			position: absolute;
-			top: 0; left: 0; right: 0; bottom: 0;
+			top: 0; left: 0;
+			width: 100%;
+			height: 100%;
 			opacity: 0;
 			transition: opacity 1.4s ease-in-out;
 			pointer-events: none;
 		}
 		.hero-slide.active {
 			opacity: 1;
+			z-index: 1;
 		}
 		.hero-slide video {
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
+			object-position: center center;
 			display: block;
 		}
 		.fh5co-hero .fh5co-overlay {
-			z-index: 1;
+			z-index: 2;
 		}
 		.fh5co-hero .fh5co-cover {
 			background-image: none !important;
+			background-color: transparent !important;
 			position: relative;
-			z-index: 2;
+			z-index: 3;
 			height: 100%;
 		}
 		.btn-primary { background: var(--brisa-teal) !important; border-color: var(--brisa-teal) !important; }
@@ -244,17 +256,17 @@
 		<div class="fh5co-hero">
 			<div class="hero-slides">
 				<div class="hero-slide active">
-					<video muted playsinline loop preload="auto">
+					<video muted playsinline loop preload="auto" poster="images/cover_bg_1.jpeg">
 						<source src="images/hero-1.mp4" type="video/mp4">
 					</video>
 				</div>
 				<div class="hero-slide">
-					<video muted playsinline loop preload="metadata">
-						<source src="images/hero-2.mov" type="video/mp4">
+					<video muted playsinline loop preload="metadata" poster="images/cover_bg_2.jpeg">
+						<source src="images/hero-2.mp4" type="video/mp4">
 					</video>
 				</div>
 				<div class="hero-slide">
-					<video muted playsinline loop preload="metadata">
+					<video muted playsinline loop preload="metadata" poster="images/cover_bg_3.jpeg">
 						<source src="images/hero-3.mp4" type="video/mp4">
 					</video>
 				</div>
