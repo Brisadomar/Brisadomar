@@ -137,6 +137,43 @@
 			object-fit: cover;
 			display: block;
 		}
+		.fleet-gallery {
+			position: relative;
+			display: block;
+			overflow: hidden;
+		}
+		.fleet-gallery > a {
+			display: block;
+			position: relative;
+			color: inherit;
+			text-decoration: none;
+		}
+		.fleet-gallery > a.fleet-extra {
+			display: none;
+		}
+		.fleet-gallery-hint {
+			position: absolute;
+			left: 0; right: 0; bottom: 0;
+			padding: 10px;
+			background: linear-gradient(transparent, rgba(10,22,40,0.75));
+			color: #fff;
+			font-size: 13px;
+			font-weight: 600;
+			text-align: center;
+			opacity: 0;
+			transition: opacity 0.25s;
+			pointer-events: none;
+		}
+		.fleet-gallery:hover .fleet-gallery-hint {
+			opacity: 1;
+		}
+		.fleet-gallery > a:first-child:hover img {
+			transform: scale(1.03);
+			transition: transform 0.35s ease;
+		}
+		.fleet-gallery > a:first-child img {
+			transition: transform 0.35s ease;
+		}
 		.capacity {
 			display: inline-block; background: #e8f4f6; color: var(--brisa-teal);
 			padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: 600; margin-bottom: 10px;
@@ -451,7 +488,16 @@
 				<div class="row">
 					<div class="col-md-4 col-sm-6 animate-box">
 						<div class="fleet-card">
-							<img src="images/santaluzia.jpeg" alt="Santa Luzia — Yacht Brisa do Mar">
+							<div class="fleet-gallery">
+								<a href="images/santaluzia.jpeg" title="Santa Luzia">
+									<img src="images/santaluzia.jpeg" alt="Santa Luzia — Yacht Brisa do Mar">
+									<span class="fleet-gallery-hint">📷 Ver fotos</span>
+								</a>
+								<!-- Add more photos: copy a line and change the filename
+								<a class="fleet-extra" href="images/santaluzia-2.jpeg" title="Santa Luzia"></a>
+								<a class="fleet-extra" href="images/santaluzia-3.jpeg" title="Santa Luzia"></a>
+								-->
+							</div>
 							<div class="desc">
 								<span class="capacity" data-i18n="fleet.santaluzia.capacity">15 – 20 pessoas · 46 pés</span>
 								<h3>Santa Luzia</h3>
@@ -466,7 +512,16 @@
 					</div>
 					<div class="col-md-4 col-sm-6 animate-box">
 						<div class="fleet-card">
-							<img src="images/catamara.jpeg" alt="Catamarã — Yacht Brisa do Mar">
+							<div class="fleet-gallery">
+								<a href="images/catamara.jpeg" title="Catamarã">
+									<img src="images/catamara.jpeg" alt="Catamarã — Yacht Brisa do Mar">
+									<span class="fleet-gallery-hint">📷 Ver fotos</span>
+								</a>
+								<!-- Add more photos:
+								<a class="fleet-extra" href="images/catamara-2.jpeg" title="Catamarã"></a>
+								<a class="fleet-extra" href="images/catamara-3.jpeg" title="Catamarã"></a>
+								-->
+							</div>
 							<div class="desc">
 								<span class="capacity" data-i18n="fleet.catamara.capacity">Até 30 pessoas · 45 pés</span>
 								<h3>Catamarã</h3>
@@ -482,7 +537,16 @@
 					</div>
 					<div class="col-md-4 col-sm-6 animate-box">
 						<div class="fleet-card">
-							<img src="images/brisadomar.jpeg" alt="Brisa do Mar — Yacht Brisa do Mar">
+							<div class="fleet-gallery">
+								<a href="images/brisadomar.jpeg" title="Brisa do Mar">
+									<img src="images/brisadomar.jpeg" alt="Brisa do Mar — Yacht Brisa do Mar">
+									<span class="fleet-gallery-hint">📷 Ver fotos</span>
+								</a>
+								<!-- Add more photos:
+								<a class="fleet-extra" href="images/brisadomar-2.jpeg" title="Brisa do Mar"></a>
+								<a class="fleet-extra" href="images/brisadomar-3.jpeg" title="Brisa do Mar"></a>
+								-->
+							</div>
 							<div class="desc">
 								<span class="capacity" data-i18n="fleet.brisa.capacity">Até 10 pessoas</span>
 								<h3>Brisa do Mar</h3>
