@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  // MagnificPopup
+  // Single image popup (template default)
 	var magnifPopup = function() {
 		$('.image-popup').magnificPopup({
 			type: 'image',
@@ -9,20 +9,42 @@ $(document).ready(function() {
 				enabled:true
 			},
 			zoom: {
-				enabled: true, // By default it's false, so don't forget to enable it
-
-				duration: 300, // duration of the effect, in milliseconds
-				easing: 'ease-in-out', // CSS transition easing function
-
-				// The "opener" function should return the element from which popup will be zoomed in
-				// and to which popup will be scaled down
-				// By defailt it looks for an image tag:
+				enabled: true,
+				duration: 300,
+				easing: 'ease-in-out',
 				opener: function(openerElement) {
-				// openerElement is the element on which popup was initialized, in this case its <a> tag
-				// you don't need to add "opener" option if this code matches your needs, it's defailt one.
 				return openerElement.is('img') ? openerElement : openerElement.find('img');
 				}
 			}
+		});
+	};
+
+	// Fleet card galleries — each boat has its own set of photos
+	var fleetGalleries = function() {
+		$('.fleet-gallery').each(function() {
+			$(this).magnificPopup({
+				delegate: 'a',
+				type: 'image',
+				tLoading: 'A carregar…',
+				mainClass: 'mfp-with-zoom',
+				removalDelay: 300,
+				gallery: {
+					enabled: true,
+					navigateByImgClick: true,
+					preload: [1, 1]
+				},
+				image: {
+					tError: 'Não foi possível carregar a imagem.'
+				},
+				zoom: {
+					enabled: true,
+					duration: 300,
+					easing: 'ease-in-out',
+					opener: function(openerElement) {
+						return openerElement.is('img') ? openerElement : openerElement.find('img');
+					}
+				}
+			});
 		});
 	};
 
@@ -33,16 +55,11 @@ $(document).ready(function() {
         mainClass: 'mfp-fade',
         removalDelay: 160,
         preloader: false,
-
         fixedContentPos: false
     });
 	};
 
-	
-
-
-	// Call the functions 
 	magnifPopup();
+	fleetGalleries();
 	magnifVideo();
-
 });
