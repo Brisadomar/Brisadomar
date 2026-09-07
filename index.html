@@ -417,17 +417,17 @@
 		<div class="fh5co-hero">
 			<div class="hero-slides">
 				<div class="hero-slide active">
-					<video muted playsinline loop preload="auto" poster="images/cover_bg_1.jpeg">
+					<video autoplay muted playsinline webkit-playsinline loop preload="auto" poster="images/cover_bg_1.jpeg">
 						<source src="images/hero-1.mp4" type="video/mp4">
 					</video>
 				</div>
 				<div class="hero-slide">
-					<video muted playsinline loop preload="metadata" poster="images/cover_bg_2.jpeg">
+					<video muted playsinline webkit-playsinline loop preload="auto" poster="images/cover_bg_2.jpeg">
 						<source src="images/hero-2.mp4" type="video/mp4">
 					</video>
 				</div>
 				<div class="hero-slide">
-					<video muted playsinline loop preload="metadata" poster="images/cover_bg_3.jpeg">
+					<video muted playsinline webkit-playsinline loop preload="auto" poster="images/cover_bg_3.jpeg">
 						<source src="images/hero-3.mp4" type="video/mp4">
 					</video>
 				</div>
@@ -1040,24 +1040,72 @@
 			if (!slides.length) return;
 			var videos = [];
 			slides.forEach(function (slide) {
-				videos.push(slide.querySelector('video'));
+				var v = slide.querySelector('video');
+				if (v) {
+					v.muted = true;
+					v.defaultMuted = true;
+					v.setAttribute('muted', '');
+					v.playsInline = true;
+					v.setAttribute('playsinline', '');
+					v.setAttribute('webkit-playsinline', '');
+				}
+				videos.push(v);
 			});
 			var i = 0;
-			if (videos[0]) {
-				videos[0].play().catch(function () {});
+			var SWITCH_MS = 10000;
+
+			function playVideo(v) {
+				if (!v) return;
+				v.muted = true;
+				var start = function () {
+					var p = v.play();
+					if (p && typeof p.then === 'function') {
+						p.catch(function () {
+							// Autoplay blocked — retry once after a short delay
+							setTimeout(function () {
+								v.muted = true;
+								v.play().catch(function () {});
+							}, 300);
+						});
+					}
+				};
+				if (v.readyState >= 2) {
+					start();
+				} else {
+					v.addEventListener('canplay', start, { once: true });
+					try { v.load(); } catch (e) {}
+				}
 			}
-			setInterval(function () {
-				slides[i].classList.remove('active');
+
+			function showSlide(next) {
 				if (videos[i]) {
 					videos[i].pause();
-					videos[i].currentTime = 0;
+					try { videos[i].currentTime = 0; } catch (e) {}
 				}
-				i = (i + 1) % slides.length;
+				slides[i].classList.remove('active');
+				i = next;
 				slides[i].classList.add('active');
-				if (videos[i]) {
-					videos[i].play().catch(function () {});
-				}
-			}, 10000);
+				playVideo(videos[i]);
+			}
+
+			// Start first video
+			playVideo(videos[0]);
+
+			// Also try again on first user interaction (mobile browsers)
+			var unlocked = false;
+			function unlock() {
+				if (unlocked) return;
+				unlocked = true;
+				playVideo(videos[i]);
+				document.removeEventListener('touchstart', unlock);
+				document.removeEventListener('click', unlock);
+			}
+			document.addEventListener('touchstart', unlock, { passive: true });
+			document.addEventListener('click', unlock);
+
+			setInterval(function () {
+				showSlide((i + 1) % slides.length);
+			}, SWITCH_MS);
 		})();
 		</script>
 		<script>
