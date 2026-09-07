@@ -1042,39 +1042,52 @@
 			slides.forEach(function (slide) {
 				var v = slide.querySelector('video');
 				if (v) {
+					// Must be muted BEFORE any play() for autoplay to be allowed
 					v.muted = true;
 					v.defaultMuted = true;
-					v.setAttribute('muted', '');
+					v.volume = 0;
+					v.setAttribute('muted', 'muted');
 					v.playsInline = true;
 					v.setAttribute('playsinline', '');
 					v.setAttribute('webkit-playsinline', '');
+					v.setAttribute('autoplay', '');
 				}
 				videos.push(v);
 			});
 			var i = 0;
 			var SWITCH_MS = 10000;
+			var autoplayBlocked = false;
 
 			function playVideo(v) {
-				if (!v) return;
+				if (!v) return Promise.resolve();
 				v.muted = true;
-				var start = function () {
+				v.volume = 0;
+				var attempt = function () {
 					var p = v.play();
 					if (p && typeof p.then === 'function') {
-						p.catch(function () {
-							// Autoplay blocked — retry once after a short delay
-							setTimeout(function () {
-								v.muted = true;
-								v.play().catch(function () {});
-							}, 300);
+						return p.then(function () {
+							autoplayBlocked = false;
+						}).catch(function () {
+							autoplayBlocked = true;
 						});
 					}
+					return Promise.resolve();
 				};
 				if (v.readyState >= 2) {
-					start();
-				} else {
-					v.addEventListener('canplay', start, { once: true });
-					try { v.load(); } catch (e) {}
+					return attempt();
 				}
+				return new Promise(function (resolve) {
+					var done = false;
+					var finish = function () {
+						if (done) return;
+						done = true;
+						attempt().then(resolve, resolve);
+					};
+					v.addEventListener('loadeddata', finish, { once: true });
+					v.addEventListener('canplay', finish, { once: true });
+					// Fallback if events already fired
+					setTimeout(finish, 500);
+				});
 			}
 
 			function showSlide(next) {
@@ -1088,14 +1101,28 @@
 				playVideo(videos[i]);
 			}
 
-			// Start first video
-			playVideo(videos[0]);
+			function startHero() {
+				playVideo(videos[0]);
+			}
 
-			// Also try again on first user interaction (mobile browsers)
-			var unlocked = false;
+			// Try as soon as possible, then again after load (helps slow connections)
+			startHero();
+			if (document.readyState === 'complete') {
+				startHero();
+			} else {
+				window.addEventListener('load', startHero);
+			}
+			// Retry a few times — covers late buffering without needing a click
+			setTimeout(startHero, 800);
+			setTimeout(startHero, 2000);
+
+			// If the tab was in background, resume when visible
+			document.addEventListener('visibilitychange', function () {
+				if (!document.hidden) playVideo(videos[i]);
+			});
+
+			// Last resort: first gesture unlocks (some mobile / low-power modes)
 			function unlock() {
-				if (unlocked) return;
-				unlocked = true;
 				playVideo(videos[i]);
 				document.removeEventListener('touchstart', unlock);
 				document.removeEventListener('click', unlock);
