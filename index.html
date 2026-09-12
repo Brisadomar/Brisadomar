@@ -104,42 +104,59 @@
 			color: #fff !important;
 		}
 
-		/* Thin-line hamburger → X */
-		.fh5co-nav-toggle {
+		/* Thin-line hamburger → X (always white) */
+		.fh5co-nav-toggle,
+		.fh5co-nav-toggle.dark {
 			width: 28px !important;
-			height: 20px !important;
+			height: 22px !important;
 		}
-		.fh5co-nav-toggle i {
-			position: relative;
-			display: inline-block;
-			width: 22px;
-			height: 1.5px;
-			background: #fff !important;
-			transition: background 0.2s ease;
+		.fh5co-nav-toggle i,
+		.fh5co-nav-toggle.dark i {
+			position: relative !important;
+			display: inline-block !important;
+			width: 22px !important;
+			height: 1.5px !important;
+			background: #ffffff !important;
+			color: #ffffff !important;
+			transition: background 0.2s ease !important;
 			box-shadow: none !important;
 		}
 		.fh5co-nav-toggle i::before,
-		.fh5co-nav-toggle i::after {
-			content: '';
-			position: absolute;
-			left: 0;
-			width: 22px;
-			height: 1.5px;
-			background: #fff;
-			transition: transform 0.28s ease, top 0.28s ease;
+		.fh5co-nav-toggle i::after,
+		.fh5co-nav-toggle.dark i::before,
+		.fh5co-nav-toggle.dark i::after {
+			content: '' !important;
+			position: absolute !important;
+			left: 0 !important;
+			width: 22px !important;
+			height: 1.5px !important;
+			background: #ffffff !important;
+			transition: transform 0.28s ease, top 0.28s ease, bottom 0.28s ease !important;
 		}
-		.fh5co-nav-toggle i::before { top: -7px; }
-		.fh5co-nav-toggle i::after { top: 7px; }
-		.fh5co-nav-toggle.active i {
+		.fh5co-nav-toggle i::before,
+		.fh5co-nav-toggle.dark i::before { top: -7px !important; bottom: auto !important; }
+		.fh5co-nav-toggle i::after,
+		.fh5co-nav-toggle.dark i::after { top: 7px !important; bottom: auto !important; }
+		.fh5co-nav-toggle:hover i::before,
+		.fh5co-nav-toggle.dark:hover i::before { top: -7px !important; }
+		.fh5co-nav-toggle:hover i::after,
+		.fh5co-nav-toggle.dark:hover i::after { top: 7px !important; }
+		.fh5co-nav-toggle.active i,
+		.fh5co-nav-toggle.dark.active i {
 			background: transparent !important;
 		}
-		.fh5co-nav-toggle.active i::before {
-			top: 0;
-			transform: rotate(45deg);
+		.fh5co-nav-toggle.active i::before,
+		.fh5co-nav-toggle.dark.active i::before {
+			top: 0 !important;
+			transform: rotate(45deg) !important;
+			background: #ffffff !important;
 		}
-		.fh5co-nav-toggle.active i::after {
-			top: 0;
-			transform: rotate(-45deg);
+		.fh5co-nav-toggle.active i::after,
+		.fh5co-nav-toggle.dark.active i::after {
+			top: 0 !important;
+			bottom: auto !important;
+			transform: rotate(-45deg) !important;
+			background: #ffffff !important;
 		}
 
 		/* Hero */
@@ -300,39 +317,80 @@
 		}
 		.fleet-card img {
 			width: 100%;
-			height: 240px;
+			height: 100%;
 			object-fit: cover;
 			display: block;
 		}
-		.fleet-gallery { position: relative; display: block; overflow: hidden; }
-		.fleet-gallery > a {
-			display: block;
+		/* Fleet image carousel */
+		.fleet-carousel {
 			position: relative;
-			color: inherit;
-			text-decoration: none;
+			overflow: hidden;
+			height: 240px;
+			background: var(--bg-soft);
 		}
-		.fleet-gallery > a.fleet-extra { display: none; }
-		.fleet-gallery-hint {
+		.fleet-track {
+			display: flex;
+			height: 100%;
+			transition: transform 0.45s ease;
+			will-change: transform;
+		}
+		.fleet-slide {
+			min-width: 100%;
+			height: 100%;
+			flex-shrink: 0;
+		}
+		.fleet-slide img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			display: block;
+		}
+		.fleet-arrow {
 			position: absolute;
-			left: 0; right: 0; bottom: 0;
-			padding: 12px;
-			background: linear-gradient(transparent, rgba(26,31,36,0.55));
+			top: 50%;
+			transform: translateY(-50%);
+			z-index: 3;
+			width: 32px;
+			height: 32px;
+			border: 1px solid rgba(255,255,255,0.7);
+			background: rgba(26,31,36,0.25);
 			color: #fff;
-			font-size: 11px;
-			font-weight: 400;
-			letter-spacing: 0.16em;
-			text-transform: uppercase;
-			text-align: center;
-			opacity: 0;
-			transition: opacity 0.3s ease;
-			pointer-events: none;
+			font-size: 18px;
+			line-height: 1;
+			cursor: pointer;
+			border-radius: 2px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 0;
+			transition: background 0.2s ease, border-color 0.2s ease;
 		}
-		.fleet-gallery:hover .fleet-gallery-hint { opacity: 1; }
-		.fleet-gallery > a:first-child img {
-			transition: transform 0.5s ease;
+		.fleet-arrow:hover {
+			background: rgba(26,31,36,0.55);
+			border-color: #fff;
 		}
-		.fleet-gallery > a:first-child:hover img {
-			transform: scale(1.02);
+		.fleet-prev { left: 10px; }
+		.fleet-next { right: 10px; }
+		.fleet-dots {
+			position: absolute;
+			left: 0; right: 0; bottom: 12px;
+			display: flex;
+			justify-content: center;
+			gap: 6px;
+			z-index: 3;
+		}
+		.fleet-dots button {
+			width: 6px;
+			height: 6px;
+			padding: 0;
+			border: 1px solid rgba(255,255,255,0.85);
+			background: transparent;
+			border-radius: 50%;
+			cursor: pointer;
+			transition: background 0.2s ease;
+		}
+		.fleet-dots button.active {
+			background: #fff;
 		}
 		.capacity {
 			display: inline-block;
@@ -414,54 +472,86 @@
 			font-weight: 300;
 		}
 
-		/* Pricing — thin lines */
+		/* Pricing — Maldives image cards */
 		.price-table {
-			background: var(--paper);
+			position: relative;
 			border-radius: var(--radius);
 			overflow: hidden;
 			border: 1px solid var(--line);
 			box-shadow: none;
 			margin-bottom: 30px;
+			min-height: 420px;
+			background-size: cover;
+			background-position: center center;
+			background-repeat: no-repeat;
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+		}
+		.price-table::before {
+			content: '';
+			position: absolute;
+			inset: 0;
+			background: linear-gradient(to top, rgba(26,31,36,0.88) 0%, rgba(26,31,36,0.45) 45%, rgba(26,31,36,0.2) 100%);
+			z-index: 1;
+		}
+		.price-table .header,
+		.price-table table {
+			position: relative;
+			z-index: 2;
 		}
 		.price-table .header {
 			background: transparent;
-			color: var(--ink);
-			padding: 22px 24px 18px;
+			color: #fff;
+			padding: 22px 24px 12px;
 			text-align: left;
-			border-bottom: 1px solid var(--line);
+			border-bottom: 1px solid rgba(255,255,255,0.2);
 		}
 		.price-table .header h4 {
 			margin: 0 0 6px;
-			color: var(--ink);
-			font-size: 22px;
+			color: #fff;
+			font-size: 24px;
 			font-family: 'Cormorant Garamond', serif;
 			font-weight: 400;
 			letter-spacing: 0.04em;
 		}
 		.price-table .header small {
-			color: var(--ink-soft);
+			color: rgba(255,255,255,0.8);
 			font-size: 12px;
 			font-weight: 300;
 			letter-spacing: 0.04em;
 		}
-		.price-table table { width: 100%; margin: 0; }
+		.price-table table { width: 100%; margin: 0; background: transparent; }
 		.price-table td {
-			padding: 14px 24px;
-			border-bottom: 1px solid var(--line);
+			padding: 11px 24px;
+			border-bottom: 1px solid rgba(255,255,255,0.12);
 			font-weight: 300;
 			font-size: 13px;
+			color: rgba(255,255,255,0.92);
 		}
 		.price-table tr:last-child td { border-bottom: none; }
 		.price-table .hours {
 			font-weight: 400;
-			color: var(--accent-dark);
+			color: rgba(255,255,255,0.75);
 			width: 30%;
 			letter-spacing: 0.08em;
 		}
 		.price-table .price {
 			text-align: right;
 			font-weight: 400;
-			color: var(--ink);
+			color: #fff;
+		}
+		.price-table.bg-normal {
+			background-image: url('https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1200&q=80');
+		}
+		.price-table.bg-special {
+			background-image: url('https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=1200&q=80');
+		}
+		.price-table.bg-offshore {
+			background-image: url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80');
+		}
+		.price-table.bg-club {
+			background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80');
 		}
 
 		/* Bar packs */
@@ -807,15 +897,15 @@
 				<div class="row">
 					<div class="col-md-4 col-sm-6 animate-box">
 						<div class="fleet-card">
-							<div class="fleet-gallery">
-								<a href="images/santaluzia.jpeg" title="Santa Luzia">
-									<img src="images/santaluzia.jpeg" alt="Santa Luzia — Yacht Brisa do Mar">
-									<span class="fleet-gallery-hint">📷 Ver fotos</span>
-								</a>
-								<!-- Add more photos: copy a line and change the filename
-								<a class="fleet-extra" href="images/santaluzia-2.jpeg" title="Santa Luzia"></a>
-								<a class="fleet-extra" href="images/santaluzia-3.jpeg" title="Santa Luzia"></a>
-								-->
+							<div class="fleet-carousel" data-fleet="santaluzia">
+								<div class="fleet-track">
+									<div class="fleet-slide"><img src="images/santaluzia.jpeg" alt="Santa Luzia — Yacht Brisa do Mar"></div>
+									<div class="fleet-slide"><img src="images/cover_bg_1.jpeg" alt="Santa Luzia — vista"></div>
+									<div class="fleet-slide"><img src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?auto=format&fit=crop&w=900&q=80" alt="Santa Luzia — no mar"></div>
+								</div>
+								<button type="button" class="fleet-arrow fleet-prev" aria-label="Anterior">‹</button>
+								<button type="button" class="fleet-arrow fleet-next" aria-label="Seguinte">›</button>
+								<div class="fleet-dots"></div>
 							</div>
 							<div class="desc">
 								<span class="capacity" data-i18n="fleet.santaluzia.capacity">15 – 20 pessoas · 46 pés</span>
@@ -831,15 +921,15 @@
 					</div>
 					<div class="col-md-4 col-sm-6 animate-box">
 						<div class="fleet-card">
-							<div class="fleet-gallery">
-								<a href="images/catamara.jpeg" title="Catamarã">
-									<img src="images/catamara.jpeg" alt="Catamarã — Yacht Brisa do Mar">
-									<span class="fleet-gallery-hint">📷 Ver fotos</span>
-								</a>
-								<!-- Add more photos:
-								<a class="fleet-extra" href="images/catamara-2.jpeg" title="Catamarã"></a>
-								<a class="fleet-extra" href="images/catamara-3.jpeg" title="Catamarã"></a>
-								-->
+							<div class="fleet-carousel" data-fleet="catamara">
+								<div class="fleet-track">
+									<div class="fleet-slide"><img src="images/catamara.jpeg" alt="Catamarã — Yacht Brisa do Mar"></div>
+									<div class="fleet-slide"><img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=900&q=80" alt="Catamarã — no mar"></div>
+									<div class="fleet-slide"><img src="images/cover_bg_1.jpeg" alt="Catamarã — vista"></div>
+								</div>
+								<button type="button" class="fleet-arrow fleet-prev" aria-label="Anterior">‹</button>
+								<button type="button" class="fleet-arrow fleet-next" aria-label="Seguinte">›</button>
+								<div class="fleet-dots"></div>
 							</div>
 							<div class="desc">
 								<span class="capacity" data-i18n="fleet.catamara.capacity">Até 30 pessoas · 45 pés</span>
@@ -856,15 +946,15 @@
 					</div>
 					<div class="col-md-4 col-sm-6 animate-box">
 						<div class="fleet-card">
-							<div class="fleet-gallery">
-								<a href="images/brisadomar.jpeg" title="Brisa do Mar">
-									<img src="images/brisadomar.jpeg" alt="Brisa do Mar — Yacht Brisa do Mar">
-									<span class="fleet-gallery-hint">📷 Ver fotos</span>
-								</a>
-								<!-- Add more photos:
-								<a class="fleet-extra" href="images/brisadomar-2.jpeg" title="Brisa do Mar"></a>
-								<a class="fleet-extra" href="images/brisadomar-3.jpeg" title="Brisa do Mar"></a>
-								-->
+							<div class="fleet-carousel" data-fleet="brisadomar">
+								<div class="fleet-track">
+									<div class="fleet-slide"><img src="images/brisadomar.jpeg" alt="Brisa do Mar — Yacht Brisa do Mar"></div>
+									<div class="fleet-slide"><img src="https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?auto=format&fit=crop&w=900&q=80" alt="Brisa do Mar — no mar"></div>
+									<div class="fleet-slide"><img src="images/cover_bg_1.jpeg" alt="Brisa do Mar — vista"></div>
+								</div>
+								<button type="button" class="fleet-arrow fleet-prev" aria-label="Anterior">‹</button>
+								<button type="button" class="fleet-arrow fleet-next" aria-label="Seguinte">›</button>
+								<div class="fleet-dots"></div>
 							</div>
 							<div class="desc">
 								<span class="capacity" data-i18n="fleet.brisa.capacity">Até 10 pessoas</span>
@@ -895,7 +985,7 @@
 				<div class="row">
 					<!-- Viagens Normais -->
 					<div class="col-md-6 animate-box">
-						<div class="price-table">
+						<div class="price-table bg-normal">
 							<div class="header">
 								<h4 data-i18n="prices.normal.title">Viagens Normais</h4>
 								<small data-i18n="prices.normal.desc">Mussulo · Clube Náutico · Baía · Embarcadouro · Ponto Final · Máx. 9 pessoas</small>
@@ -914,7 +1004,7 @@
 
 					<!-- Viagens Especiais -->
 					<div class="col-md-6 animate-box">
-						<div class="price-table">
+						<div class="price-table bg-special">
 							<div class="header">
 								<h4 data-i18n="prices.special.title">Viagens Especiais</h4>
 								<small data-i18n="prices.special.desc">Relaxar no barco alto mar com música</small>
@@ -935,7 +1025,7 @@
 				<div class="row" style="margin-top: 10px;">
 					<!-- Alto Mar (outro pacote) -->
 					<div class="col-md-6 animate-box">
-						<div class="price-table">
+						<div class="price-table bg-offshore">
 							<div class="header">
 								<h4 data-i18n="prices.offshore.title">Alto Mar com Música</h4>
 								<small data-i18n="prices.offshore.desc">Relaxar no barco — pacote premium</small>
@@ -954,7 +1044,7 @@
 
 					<!-- Clube Náutico / Baía / Ponto Final -->
 					<div class="col-md-6 animate-box">
-						<div class="price-table">
+						<div class="price-table bg-club">
 							<div class="header">
 								<h4 data-i18n="prices.club.title">Clube Náutico · Baía · Ponto Final</h4>
 								<small data-i18n="prices.club.desc">Partida e destino à sua escolha · Máx. 9 pessoas</small>
@@ -1452,6 +1542,53 @@
 			setInterval(function () {
 				showSlide((i + 1) % slides.length);
 			}, SWITCH_MS);
+		})();
+		</script>
+		<script>
+		/* Fleet card carousels */
+		(function () {
+			function initCarousel(root) {
+				var track = root.querySelector('.fleet-track');
+				var slides = root.querySelectorAll('.fleet-slide');
+				var dotsWrap = root.querySelector('.fleet-dots');
+				var prev = root.querySelector('.fleet-prev');
+				var next = root.querySelector('.fleet-next');
+				if (!track || !slides.length) return;
+				var i = 0;
+				var n = slides.length;
+
+				dotsWrap.innerHTML = '';
+				for (var d = 0; d < n; d++) {
+					var b = document.createElement('button');
+					b.type = 'button';
+					b.setAttribute('aria-label', 'Foto ' + (d + 1));
+					if (d === 0) b.className = 'active';
+					(function (idx) {
+						b.addEventListener('click', function () { go(idx); });
+					})(d);
+					dotsWrap.appendChild(b);
+				}
+				var dots = dotsWrap.querySelectorAll('button');
+
+				function go(idx) {
+					i = (idx + n) % n;
+					track.style.transform = 'translateX(' + (-i * 100) + '%)';
+					for (var k = 0; k < dots.length; k++) {
+						dots[k].classList.toggle('active', k === i);
+					}
+				}
+				if (prev) prev.addEventListener('click', function () { go(i - 1); });
+				if (next) next.addEventListener('click', function () { go(i + 1); });
+
+				// Optional gentle auto-advance
+				var timer = setInterval(function () { go(i + 1); }, 6000);
+				root.addEventListener('mouseenter', function () { clearInterval(timer); });
+				root.addEventListener('mouseleave', function () {
+					clearInterval(timer);
+					timer = setInterval(function () { go(i + 1); }, 6000);
+				});
+			}
+			document.querySelectorAll('.fleet-carousel').forEach(initCarousel);
 		})();
 		</script>
 		<script>
